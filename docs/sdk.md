@@ -481,13 +481,13 @@ libnvonnxparsers8=8.6.1.6-1+cuda12.0 libnvinfer-vc-plugin-dev=8.6.1.6-1+cuda12.0
 
 ### **Deepstream 7.0**
 
-**Downloading DeepStream 6.2**
+**Downloading DeepStream 7.0**
 
 ```
 sudo gdown 1p7jUJmSVXmayGZNPQt8tQW6USHq9oORG
 ```
 
-**Installing DeepStream 6.2**
+**Installing DeepStream 7.0**
 
 ```
 sudo apt-get install -y ./deepstream-7.0_7.0.0-1_amd64.deb

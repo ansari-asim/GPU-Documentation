@@ -1,0 +1,1133 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../GPU/">
+      
+      
+        <link rel="next" href="../deployment/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>SDK - Assert AI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#FFFF00" data-md-color-accent="#ffcc00">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#jetson-device" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Assert AI Documentation" class="md-header__button md-logo" aria-label="Assert AI Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Assert AI Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SDK
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#FFFF00" data-md-color-accent="#ffcc00"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#FFFF00" data-md-color-accent="#ffcc00"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Assert AI Documentation" class="md-nav__button md-logo" aria-label="Assert AI Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Assert AI Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GPU/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    SDK
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    SDK
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jetson-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jetson Device
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jetson Device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avermedia-tacodi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avermedia &amp; Tacodi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eagletech" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eagletech
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepstream-60" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deepstream 6.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deepstream 6.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-apps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python-apps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dgpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      dGPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dGPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cuda-118" class="md-nav__link">
+    <span class="md-ellipsis">
+      CUDA 11.8
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensorrt-851" class="md-nav__link">
+    <span class="md-ellipsis">
+      TensorRT 8.5.1
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepstream-62" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deepstream 6.2
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deepstream 6.2">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-apps_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python-apps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cuda-122" class="md-nav__link">
+    <span class="md-ellipsis">
+      CUDA 12.2
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tensorrt-8616" class="md-nav__link">
+    <span class="md-ellipsis">
+      TensorRT 8.6.1.6
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deepstream-70" class="md-nav__link">
+    <span class="md-ellipsis">
+      Deepstream 7.0
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Deepstream 7.0">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#python-apps_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Python-apps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#uninstalling" class="md-nav__link">
+    <span class="md-ellipsis">
+      Uninstalling
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Setup
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SOP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SOP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>SDK</h1>
+
+<h2 id="jetson-device"><strong>Jetson Device</strong></h2>
+<h3 id="avermedia-tacodi"><strong>Avermedia &amp; Tacodi</strong></h3>
+<p><strong>Update and Install JetPack Dependencies</strong></p>
+<pre><code>sudo apt update &amp;&amp; apt depends nvidia-jetpack | awk '{print $2}' | uniq | xargs -I {} bash -c &quot;sudo apt clean ; sudo apt install -y {}&quot;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>apt depends nvidia-jetpack:</strong> Lists all the dependencies required by the nvidia-jetpack package.</li>
+<li><strong>awk '{print $2}':</strong> Extracts only the package names</li>
+<li><strong>uniq:</strong> Removes duplicate entries from the package list.</li>
+<li><strong>xargs -I {} bash -c "sudo apt clean ; sudo apt install -y {}":</strong><ul>
+<li><strong>apt clean:</strong> Clears the package cache to free up space before the installation.</li>
+<li><strong>apt install -y {}:</strong> Installs each package found in the dependency list without asking for confirmation.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Purpose:</strong> This command updates your system and ensures all necessary JetPack dependencies are freshly installed.</p>
+<p><strong>Remove Unnecessary or Old Packages</strong></p>
+<pre><code>sudo apt autoremove --purge libnvidia-container0 libnvidia-container-tools nvidia-container-csv-cuda nvidia-container-csv-cudnn nvidia-container-csv-tensorrt nvidia-container-csv-visionworks nvidia-container-runtime nvidia-container-toolkit nvidia-docker2 cuda-toolkit-10-2 libcudnn8 libcudnn8-dev libcudnn8-samples libopencv libopencv-dev libopencv-python libopencv-samples opencv-licenses graphsurgeon-tf libnvinfer8 libnvinfer-bin libnvinfer-dev libnvinfer-doc libnvinfer-plugin8 libnvinfer-plugin-dev libnvinfer-samples libnvonnxparsers8 libnvonnxparsers-dev libnvparsers8 libnvparsers-dev python3-libnvinfer python3-libnvinfer-dev tensorrt uff-converter-tf libvisionworks libvisionworks-dev libvisionworks-samples libvisionworks-sfm libvisionworks-sfm-dev libvisionworks-tracking libvisionworks-tracking-dev libnvvpi1 vpi1-dev vpi1-samples vpi1-demos nvidia-l4t-jetson-multimedia-api -y
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li><strong>sudo apt autoremove:</strong> Automatically removes packages that were installed as dependencies but are no longer required.</li>
+<li><strong>--purge:</strong> Ensures that not only are the packages removed but also their associated configuration files.</li>
+<li>The list of packages includes various older or unnecessary libraries and tools (like CUDA 10.2, cuDNN, TensorRT, OpenCV, VisionWorks, etc.) that are specific to Jetson development.</li>
+<li><strong>-y:</strong> Runs the command without prompting for confirmation.</li>
+</ul>
+<p><strong>Purpose:</strong> This step clears out any outdated or unneeded packages and configurations, ensuring that only necessary software remains on the device.</p>
+<p><strong>Reinstall JetPack Dependencies</strong></p>
+<pre><code>sudo apt update &amp;&amp; apt depends nvidia-jetpack | awk '{print $2}' | uniq | xargs -I {} bash -c &quot;sudo apt clean ; sudo apt install -y {}&quot;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<p>This command repeats the process of the first command:</p>
+<ul>
+<li>Updates the system package list.</li>
+<li>Re-fetches the dependencies for <strong>nvidia-jetpack</strong>.</li>
+<li>Clears cached files (<strong>apt clean</strong>).</li>
+<li>Reinstalls the necessary packages with <strong>apt install</strong>.</li>
+</ul>
+<p><strong>Purpose:</strong> After purging old or unnecessary packages in the second step, this step ensures that the Jetson device is updated with all the required JetPack dependencies, ensuring a clean and functional setup.</p>
+<p><strong>Note:</strong> </p>
+<ul>
+<li>
+<p>The above documentation applies to <strong>Nano, NX,</strong> and <strong>TX2NX</strong> devices using <strong>Avermedia</strong> and  <strong>Tacodi</strong> carrier boards. </p>
+</li>
+<li>
+<p>For <strong>Eagletech</strong> boards, please refer to the next documentation. </p>
+</li>
+</ul>
+<h3 id="eagletech"><strong>Eagletech</strong></h3>
+<p><strong>Update and Install JetPack Dependencies</strong></p>
+<pre><code>sudo apt update &amp;&amp; apt depends nvidia-jetpack | awk '{print $2}' | uniq | xargs -I {} bash -c &quot;sudo apt clean ; sudo apt install -y {}&quot;
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Updates the package list and installs the necessary JetPack dependencies.</li>
+<li>Cleans up the package cache to free space during installation.</li>
+</ul>
+<p><strong>Reboot The GPU</strong></p>
+<pre><code>sudo reboot
+</code></pre>
+<p><strong>Update the System:</strong></p>
+<pre><code>sudo apt update -y
+</code></pre>
+<p><strong>Install python , gdown and nano</strong></p>
+<pre><code>sudo apt install python3-pip -y
+sudo pip3 install gdown
+sudo apt install nano -y
+</code></pre>
+<p><strong>Source </strong><em>.bashrc</em><strong> and Change Directory to Home</strong></p>
+<ul>
+<li>Source the <strong>.bashrc</strong> to apply any environment changes and move to the home directory.</li>
+</ul>
+<pre><code>source ~/.bashrc
+echo &quot;Changing directory to home&quot;
+cd ~
+</code></pre>
+<p><strong>Install Additional Dependencies</strong></p>
+<ul>
+<li>Install various system libraries and GStreamer plugins required for DeepStream.</li>
+</ul>
+<pre><code>sudo apt install \
+libssl1.0.0 \
+libgstreamer1.0-0 \
+gstreamer1.0-tools \
+gstreamer1.0-plugins-good \
+gstreamer1.0-plugins-bad \
+gstreamer1.0-plugins-ugly \
+gstreamer1.0-libav \
+libgstrtspserver-1.0-0 \
+libjansson4=2.11-1 -y
+</code></pre>
+<p><strong>Create Directory for DeepStream 6.0</strong></p>
+<ul>
+<li>Create a directory for DeepStream 6.0 and copy necessary libraries.</li>
+</ul>
+<pre><code>sudo mkdir -p /opt/nvidia/deepstream/deepstream-6.0/lib
+sudo cp /usr/local/lib/librdkafka* /opt/nvidia/deepstream/deepstream-6.0/lib
+</code></pre>
+<p><strong>Reboot The GPU</strong></p>
+<pre><code>sudo reboot
+</code></pre>
+<h3 id="deepstream-60"><strong>Deepstream 6.0</strong></h3>
+<p><strong>Downloading DeepStream 6.0</strong></p>
+<pre><code>sudo gdown 1RnLnqyooOM9CU7KA8BJ7_uteARUzsJJG
+</code></pre>
+<p><strong>Installing DeepStream 6.0</strong></p>
+<pre><code>sudo apt-get install -y ./deepstream-6.0_6.0.0-1_arm64.deb
+</code></pre>
+<h6 id="python-apps"><strong>Python-apps</strong></h6>
+<p><strong>Navigate to DeepStream Sources Directory</strong></p>
+<pre><code>cd /opt/nvidia/deepstream/deepstream/sources/
+</code></pre>
+<p><strong>Clone the deepstream_python_apps Repository</strong></p>
+<pre><code>sudo git clone https://github.com/NVIDIA-AI-IOT/deepstream_python_apps.git
+cd deepstream_python_apps/
+</code></pre>
+<p><strong>Checkout the Specific Version for DeepStream 6.0</strong></p>
+<pre><code>sudo git checkout 20c6b13671e81cf73ca98fa795f84cab7dd6fc67
+</code></pre>
+<p><strong>Initialize Git Submodules</strong></p>
+<pre><code>cd bindings/
+sudo git submodule update --init
+</code></pre>
+<p><strong>Create and Navigate to Build Directory</strong></p>
+<pre><code>sudo mkdir build &amp;&amp; cd build
+</code></pre>
+<p><strong>Run CMake with Specific Options</strong></p>
+<pre><code>sudo cmake .. -DPYTHON_MAJOR_VERSION=3 -DPYTHON_MINOR_VERSION=6 -DPIP_PLATFORM=linux_aarch64 -DDS_PATH=/opt/nvidia/deepstream/deepstream
+</code></pre>
+<p><strong>Build the Python Bindings</strong></p>
+<pre><code>sudo make -j$(nproc)
+</code></pre>
+<p><strong>Copy the Python Wheel File to Export Directory</strong></p>
+<pre><code>sudo cp pyds-*.whl /export_pyds
+</code></pre>
+<p><strong>Install the Python Wheel Package</strong></p>
+<pre><code>sudo python3 -m pip install --upgrade pip
+sudo pip3 install ./pyds-1.1.0-py3-none*.whl
+</code></pre>
+<p><strong>Running DeepStream Analytics Application</strong></p>
+<pre><code>cd /opt/nvidia/deepstream/deepstream-6.2/sources/deepstream_python_apps/apps/deepstream-nvdsanalytics/
+sudo python3 deepstream_nvdsanalytics.py file:/opt/nvidia/deepstream/deepstream/samples/streams/sample_1080p_h264.mp4
+</code></pre>
+<h2 id="dgpu"><strong>dGPU</strong></h2>
+<h3 id="cuda-118"><strong>CUDA 11.8</strong></h3>
+<p><strong>Select NVIDIA Driver 535</strong></p>
+<ul>
+<li>
+<p>Open <strong>Ubuntu Software → Additional Drivers</strong>.</p>
+</li>
+<li>
+<p>Select <strong>NVIDIA driver 535</strong> from the list and apply the changes.</p>
+</li>
+<li>
+<p>Restart your system for the changes to take effect.</p>
+</li>
+</ul>
+<p><strong>Installing Dependencies</strong></p>
+<pre><code>sudo apt install -y \
+libssl1.1 \
+libgstreamer1.0-0 \
+gstreamer1.0-tools \
+gstreamer1.0-plugins-good \
+gstreamer1.0-plugins-bad \
+gstreamer1.0-plugins-ugly \
+gstreamer1.0-libav \
+libgstreamer-plugins-base1.0-dev \
+libgstrtspserver-1.0-0 \
+libjansson4 \
+libyaml-cpp-dev \
+libjsoncpp-dev \
+protobuf-compiler \
+gcc \
+make \
+git \
+python3
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li>Installs required libraries and packages for DeepStream and GStreamer (used for media   handling in DeepStream).</li>
+<li>Development tools like gcc, make, and git are included for compilation and building purposes.</li>
+</ul>
+<p><strong>Setting up CUDA 11.8 Repository</strong></p>
+<pre><code>sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+sudo add-apt-repository -y &quot;deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /&quot;
+sudo apt-get update -y
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li>Adds the official NVIDIA CUDA 11.8 repository for Ubuntu 20.04.</li>
+<li>Fetches the GPG key for secure installation of CUDA packages.</li>
+</ul>
+<p><strong>Installing CUDA Toolkit 11.8</strong></p>
+<pre><code>sudo apt-get install -y cuda-toolkit-11-8
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li>Installs CUDA toolkit version 11.8, which provides the necessary GPU libraries and tools.</li>
+</ul>
+<h3 id="tensorrt-851"><strong>TensorRT 8.5.1</strong></h3>
+<p><strong>Installing NVIDIA TensorRT and Related Libraries</strong></p>
+<pre><code>sudo apt-get install -y \
+libnvinfer8=8.5.1-1+cuda11.8 \
+libnvinfer-plugin8=8.5.1-1+cuda11.8 \
+libnvparsers8=8.5.1-1+cuda11.8 \
+libnvonnxparsers8=8.5.1-1+cuda11.8 \
+libnvinfer-bin=8.5.1-1+cuda11.8 \
+libnvinfer-dev=8.5.1-1+cuda11.8 \
+libnvinfer-plugin-dev=8.5.1-1+cuda11.8 \
+libnvparsers-dev=8.5.1-1+cuda11.8 \
+libnvonnxparsers-dev=8.5.1-1+cuda11.8 \
+libnvinfer-samples=8.5.1-1+cuda11.8 \
+libcudnn8=8.6.0.163-1+cuda11.8 \
+libcudnn8-dev=8.6.0.163-1+cuda11.8 \
+python3-libnvinfer=8.5.1-1+cuda11.8 \
+python3-libnvinfer-dev=8.5.1-1+cuda11.8
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li>Installs TensorRT libraries (libnvinfer, libnvparsers, libcudnn) for optimizing deep learning inference, particularly on NVIDIA hardware.</li>
+<li>Specific version 8.5.1 of TensorRT is installed with CUDA 11.8 compatibility.</li>
+</ul>
+<p><strong>Install Python gdown Tool</strong></p>
+<pre><code>sudo apt-get install python3-pip
+sudo pip3 install gdown 
+</code></pre>
+<h3 id="deepstream-62"><strong>Deepstream 6.2</strong></h3>
+<p><strong>Downloading DeepStream 6.2</strong></p>
+<pre><code>sudo gdown 1UHGdU5utMwAvwTa4_0a2U6ArH9tgTRub 
+</code></pre>
+<p><strong>Installing DeepStream 6.2</strong></p>
+<pre><code>sudo apt-get install -y ./deepstream-6.2_6.2.0-1_amd64.deb
+</code></pre>
+<h4 id="python-apps_1"><strong>Python-apps</strong></h4>
+<p><strong>Cloning DeepStream Python Applications Repository</strong></p>
+<pre><code>cd /opt/nvidia/deepstream/deepstream-6.2/sources
+git clone -b v1.1.6 https://github.com/NVIDIA-AI-IOT/deepstream_python_apps.git
+</code></pre>
+<p><strong>Installing Python Development Packages</strong></p>
+<pre><code>sudo apt install -y python3-gi python3-dev python3-gst-1.0 python-gi-dev \
+    python3 python3-pip python3.8-dev cmake g++ build-essential \
+    libglib2.0-dev libglib2.0-dev-bin libgstreamer1.0-dev libtool m4 \
+    autoconf automake libgirepository1.0-dev libcairo2-dev
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li>Installs essential Python and GStreamer libraries for Python bindings, including libgirepository, glib, and gstreamer components.</li>
+</ul>
+<p><strong>Initialization of submodules</strong></p>
+<p>This will create the following directory:</p>
+<pre><code>&lt;DeepStream 6.2 ROOT&gt;/sources/deepstream_python_apps
+</code></pre>
+<p>The repository utilizes gst-python and pybind11 submodules. To initializes them, run the following command:</p>
+<pre><code>cd /opt/nvidia/deepstream/deepstream/sources/deepstream_python_apps/
+git submodule update --init
+</code></pre>
+<p><strong>Installing Gst-python</strong></p>
+<pre><code>sudo apt-get install -y apt-transport-https ca-certificates -y
+sudo update-ca-certificates
+</code></pre>
+<p><strong>Building and Installing DeepStream Python Bindings</strong></p>
+<pre><code>cd 3rdparty/gst-python/
+./autogen.sh
+make -j$(nproc)
+sudo make install
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li>Builds and installs the GStreamer Python bindings for DeepStream.</li>
+</ul>
+<pre><code>cd ../../bindings
+sudo mkdir build
+cd build
+sudo cmake ..
+sudo make -j$(nproc)
+sudo pip3 install pyds-1.1.6-py3-none-linux_x86_64.whl
+</code></pre>
+<p><strong>Explanation</strong></p>
+<ul>
+<li>Builds and installs the Python bindings for DeepStream <strong>(pyds)</strong>.</li>
+</ul>
+<p><strong>Running DeepStream Analytics Application</strong></p>
+<pre><code>cd /opt/nvidia/deepstream/deepstream-6.2/sources/deepstream_python_apps/apps/deepstream-nvdsanalytics/
+sudo python3 deepstream_nvdsanalytics.py file:/opt/nvidia/deepstream/deepstream/samples/streams/sample_1080p_h264.mp4
+</code></pre>
+<h3 id="cuda-122"><strong>CUDA 12.2</strong></h3>
+<p><strong>Prerequisites</strong></p>
+<p>Install the following components:</p>
+<ul>
+<li>
+<p>Ubuntu 22.04</p>
+</li>
+<li>
+<p>GStreamer 1.20.3</p>
+</li>
+<li>
+<p>CUDA 12.2</p>
+</li>
+<li>
+<p>TensorRT  8.6.1.6</p>
+</li>
+</ul>
+<p><strong>NVIDIA Driver:</strong></p>
+<ul>
+<li>560.35.03 (for RTX GPUs)</li>
+</ul>
+<p><strong>Remove Previous DeepStream Installations</strong></p>
+<pre><code>sudo rm -rf /usr/local/deepstream /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstnv* /usr/bin/deepstream* \
+/usr/lib/x86_64-linux-gnu/gstreamer-1.0/libnvdsgst* /usr/lib/x86_64-linux-gnu/gstreamer-1.0/deepstream* \
+/opt/nvidia/deepstream/deepstream*
+</code></pre>
+<pre><code>sudo rm -rf /usr/lib/x86_64-linux-gnu/libv41/plugins/libcuvidv4l2_plugin.so
+</code></pre>
+<p><strong>Migrate glib to a Newer Version</strong></p>
+<p>Run the following commands:</p>
+<pre><code>pip3 install meson
+pip3 install ninja
+</code></pre>
+<p><strong><em>Compilation and Installation Steps</em></strong></p>
+<pre><code>git clone https://github.com/GNOME/glib.git
+cd glib
+git checkout &lt;glib-version-branch&gt;  # e.g., 2.76.6
+meson build --prefix=/usr
+ninja -C build/
+cd build/
+ninja install
+</code></pre>
+<p><strong><em>Verify the newly installed glib version:</em></strong></p>
+<pre><code>pkg-config --modversion glib-2.0
+</code></pre>
+<p><strong>Install Dependencies</strong></p>
+<p>Run the following commands:</p>
+<pre><code>sudo apt install \
+libssl3 \
+libssl-dev \
+libgles2-mesa-dev \
+libgstreamer1.0-0 \
+gstreamer1.0-tools \
+gstreamer1.0-plugins-good \
+gstreamer1.0-plugins-bad \
+gstreamer1.0-plugins-ugly \
+gstreamer1.0-libav \
+libgstreamer-plugins-base1.0-dev \
+libgstrtspserver-1.0-0 \
+libjansson4 \
+libyaml-cpp-dev \
+libjsoncpp-dev \
+protobuf-compiler \
+gcc \
+make \
+git \
+python3
+</code></pre>
+<pre><code>sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/3bf863cc.pub
+</code></pre>
+<pre><code>sudo add-apt-repository &quot;deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/ /&quot;
+</code></pre>
+<pre><code>sudo apt-get update
+</code></pre>
+<pre><code>sudo apt-get install cuda-toolkit-12-2
+</code></pre>
+<h3 id="tensorrt-8616"><strong>TensorRT 8.6.1.6</strong></h3>
+<pre><code>sudo apt-get install --no-install-recommends libnvinfer-lean8=8.6.1.6-1+cuda12.0 libnvinfer-vc-plugin8=8.6.1.6-1+cuda12.0 \
+libnvinfer-headers-dev=8.6.1.6-1+cuda12.0 libnvinfer-dev=8.6.1.6-1+cuda12.0 libnvinfer-headers-plugin-dev=8.6.1.6-1+cuda12.0 \
+libnvinfer-plugin-dev=8.6.1.6-1+cuda12.0 libnvonnxparsers-dev=8.6.1.6-1+cuda12.0 libnvinfer-lean-dev=8.6.1.6-1+cuda12.0 \
+libnvparsers-dev=8.6.1.6-1+cuda12.0 python3-libnvinfer-lean=8.6.1.6-1+cuda12.0 python3-libnvinfer-dispatch=8.6.1.6-1+cuda12.0 \
+uff-converter-tf=8.6.1.6-1+cuda12.0 onnx-graphsurgeon=8.6.1.6-1+cuda12.0 libnvinfer-bin=8.6.1.6-1+cuda12.0 \
+libnvinfer-dispatch-dev=8.6.1.6-1+cuda12.0 libnvinfer-dispatch8=8.6.1.6-1+cuda12.0 libnvonnxparsers-dev=8.6.1.6-1+cuda12.0 \
+libnvonnxparsers8=8.6.1.6-1+cuda12.0 libnvinfer-vc-plugin-dev=8.6.1.6-1+cuda12.0 libnvinfer-samples=8.6.1.6-1+cuda12.0
+</code></pre>
+<h3 id="deepstream-70"><strong>Deepstream 7.0</strong></h3>
+<p><strong>Downloading DeepStream 6.2</strong></p>
+<pre><code>sudo gdown 1p7jUJmSVXmayGZNPQt8tQW6USHq9oORG
+</code></pre>
+<p><strong>Installing DeepStream 6.2</strong></p>
+<pre><code>sudo apt-get install -y ./deepstream-7.0_7.0.0-1_amd64.deb
+</code></pre>
+<h4 id="python-apps_2"><strong>Python-apps</strong></h4>
+<pre><code>cd /opt/nvidia/deepstream/deepstream-7.0/sources
+git clone -b v1.1.11 https://github.com/NVIDIA-AI-IOT/deepstream_python_apps.git
+</code></pre>
+<p><strong>Base dependencies</strong></p>
+<pre><code>apt install python3-gi python3-dev python3-gst-1.0 python-gi-dev git meson \
+    python3 python3-pip python3.10-dev cmake g++ build-essential libglib2.0-dev \
+    libglib2.0-dev-bin libgstreamer1.0-dev libtool m4 autoconf automake libgirepository1.0-dev libcairo2-dev
+</code></pre>
+<p><strong>Initialization of submodules</strong></p>
+<pre><code>cd /opt/nvidia/deepstream/deepstream/sources/deepstream_python_apps/
+git submodule update --init
+</code></pre>
+<p><strong>Installing Gst-python</strong></p>
+<pre><code>sudo apt-get install -y apt-transport-https ca-certificates -y
+sudo update-ca-certificates
+</code></pre>
+<p><strong>Build and install gst-python:</strong></p>
+<pre><code>cd 3rdparty/gstreamer/subprojects/gst-python/
+meson setup build
+cd build
+ninja
+ninja install
+</code></pre>
+<p><strong>Compiling the bindings</strong></p>
+<pre><code>cd deepstream_python_apps/bindings
+mkdir build
+cd build
+cmake ..
+make -j$(nproc)
+</code></pre>
+<p><strong>Installing the bindings</strong></p>
+<pre><code>pip3 install ./pyds-1.1.11-py3-none*.whl
+</code></pre>
+<p><strong>pip wheel troubleshooting</strong></p>
+<p>If the wheel installation fails, upgrade the pip using the following command:</p>
+<pre><code>python3 -m pip install --upgrade pip
+</code></pre>
+<p><strong>Cuda-python</strong></p>
+<pre><code>sudo pip3 install cuda-python
+</code></pre>
+<h3 id="uninstalling"><strong>Uninstalling</strong></h3>
+<p><strong>Uninstalling Previous DeepStream and CUDA Libraries</strong></p>
+<pre><code>sudo rm -rf /usr/local/deepstream /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libgstnv* /usr/bin/deepstream* /usr/lib/x86_64-linux-gnu/gstreamer-1.0/libnvdsgst* /usr/lib/x86_64-linux-gnu/gstreamer-1.0/deepstream*  /opt/nvidia/deepstream/deepstream*
+sudo rm -rf /usr/lib/x86_64-linux-gnu/libv41/plugins/libcuvidv4l2_plugin.so
+sudo apt-get remove cuda* libnvinfer* -y 
+sudo apt update -y
+</code></pre>
+<p><strong>Explanation:</strong></p>
+<ul>
+<li>Removes all existing DeepStream components, CUDA, TensorRT libraries, and plugins to ensure a clean environment.</li>
+<li>apt-get remove cuda<em> libnvinfer</em> uninstalls any existing CUDA and TensorRT installations.</li>
+</ul>
+<h3 id="docker-setup"><strong>Docker Setup</strong></h3>
+<p>Before you install Docker Engine for the first time on a new host machine, you need to set up the Docker repository. Afterward, you can install and update Docker from the repository.</p>
+<p><strong>Add Docker's official GPG key:</strong></p>
+<pre><code>sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+</code></pre>
+<p><strong>Add the repository to Apt sources:</strong></p>
+<pre><code>echo \
+  &quot;deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release &amp;&amp; echo &quot;$VERSION_CODENAME&quot;) stable&quot; | \
+  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+sudo apt-get update
+</code></pre>
+<p><strong>Install the Docker packages.</strong></p>
+<pre><code>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre>
+<p><strong>Verify that the Docker Engine installation is successful by running the hello-world image.</strong></p>
+<pre><code>sudo docker run hello-world
+</code></pre>
+<p><strong>Install NVIDIA Container Toolkit:</strong></p>
+<pre><code>sudo apt-get install -y nvidia-container-toolkit
+</code></pre>
+<p><strong>Configure the NVIDIA runtime for Docker:</strong></p>
+<pre><code>sudo nvidia-ctk runtime configure --runtime=docker
+</code></pre>
+<p><strong>Restart Docker service:</strong></p>
+<pre><code>sudo systemctl restart docker
+</code></pre>
+<p><strong>Download the docker image</strong></p>
+<p><strong>Note:</strong> Please use a screen session for this downloading , because it takes a lot of time to download</p>
+<p><strong>Upgrade and install gdown</strong></p>
+<pre><code>sudo pip3 install --upgrade --no-cache-dir gdown
+</code></pre>
+<p><strong>Download file from Google Drive using its ID:</strong></p>
+<pre><code>gdown --id 1oWvWU7ft50TzbYCzhx_RcdoTZuLF8vhl 
+</code></pre>
+<p><strong>Load a Docker image from a tar file:</strong></p>
+<pre><code>sudo docker load -i rajesh-ds-py.tar
+
+</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/ansari-asim" target="_blank" rel="noopener">Asim Ansari</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tab", "navigation.tracking", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>

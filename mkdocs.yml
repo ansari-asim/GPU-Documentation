@@ -1,4 +1,4 @@
-site_name: Assert AI Documentation
+site_name: AI Hardware Documentation
 nav:
   - Network : index.md
   - GPU : GPU.md

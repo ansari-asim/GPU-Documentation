@@ -1,0 +1,1093 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../sdk/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.50">
+    
+    
+      
+        <title>GPU - Assert AI Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.a40c8224.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="#FFFF00" data-md-color-accent="#ffcc00">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#gpu" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Assert AI Documentation" class="md-header__button md-logo" aria-label="Assert AI Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Assert AI Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              GPU
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="#FFFF00" data-md-color-accent="#ffcc00"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6m0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4M7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="#FFFF00" data-md-color-accent="#ffcc00"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Assert AI Documentation" class="md-nav__button md-logo" aria-label="Assert AI Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Assert AI Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Network
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    GPU
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    GPU
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#jetson-device" class="md-nav__link">
+    <span class="md-ellipsis">
+      Jetson Device
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Jetson Device">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avermedia-nano" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avermedia (Nano)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avermedia-nx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avermedia (NX)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#avermedia-tx2nx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Avermedia (TX2NX)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#eagletech-101" class="md-nav__link">
+    <span class="md-ellipsis">
+      Eagletech-101
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#developer-kit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Developer-Kit
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tacodi" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tacodi
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#os-transfer" class="md-nav__link">
+    <span class="md-ellipsis">
+      OS Transfer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dgpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      dGPU
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="dGPU">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu-2004" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubuntu 20.04
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ubuntu-2204" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ubuntu 22.04
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sdk/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SDK
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../deployment/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Deployment
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Monitoring
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../SOP/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    SOP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FAQ/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FAQ
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="gpu">GPU</h1>
+<h2 id="jetson-device"><strong>Jetson Device</strong></h2>
+<h3 id="avermedia-nano"><strong>Avermedia</strong> (Nano)</h3>
+<p><strong>Before proceeding, ensure you have the following:</strong></p>
+<ul>
+<li>Jetson Nano device</li>
+<li>Avermedia EN715 board</li>
+<li>USB cable for putting the device into recovery mod</li>
+<li>Require Host PC Ubuntu 18.04 or Ubuntu 20.04</li>
+</ul>
+<p><strong>Step 1: Download the BSP File</strong></p>
+<p>Download the required BSP (Board Support Package) file for the Avermedia EN715 board from the following link :</p>
+<p><a href="https://s3.us-west-2.amazonaws.com/storage.avermedia.com/web_release_www/EN715/BSP/BSP-Nano/2021-12-20/EN715-R1.0.20.4.6.tar.gz">Download BSP File</a></p>
+<p><strong>Step 2: Extract the BSP File</strong></p>
+<p>Once the BSP file has been downloaded, open a terminal on your host machine and navigate to the directory where the file is located.</p>
+<p>Run the following command to extract the BSP file:</p>
+<pre><code>sudo tar xzvf EN715-R1.0.20.4.6.tar.gz
+</code></pre>
+<p><strong>Step 3: Put Jetson Nano into Recovery Mode</strong></p>
+<p>To flash the BSP file onto the Jetson Nano, you need to put the device into recovery mode.</p>
+<p><strong>Steps to enter Recovery Mode:</strong></p>
+<ul>
+<li>Connect the Jetson Nano to your host PC using a micro-USB cable.</li>
+<li>Press and hold the Recovery button.</li>
+<li>While holding the Recovery button, press the Power button.</li>
+<li>Release the Recovery button.</li>
+</ul>
+<p><strong>Step 4: Run Flashing Commands</strong></p>
+<ul>
+<li>Navigate to the directory</li>
+</ul>
+<pre><code>cd JetPack_4.6_Linux_JETSON_NANO_TARGETS/Linux_for_Tegra
+</code></pre>
+<ul>
+<li>Run the setup script</li>
+</ul>
+<pre><code>sudo ./setup.sh 
+</code></pre>
+<ul>
+<li>
+<p>When prompted, select <strong><em>Raspberry_Pi_v2</em></strong> by entering <strong>7</strong>.</p>
+</li>
+<li>
+<p>Run the flashing command</p>
+</li>
+</ul>
+<pre><code>sudo ./install.sh
+</code></pre>
+<h3 id="avermedia-nx"><strong>Avermedia</strong> (NX)</h3>
+<p><em>Before proceeding, ensure you have the following:</em>*</p>
+<ul>
+<li>Jetson NX device</li>
+<li>Avermedia EN715 board</li>
+<li>USB cable for putting the device into recovery mod</li>
+<li>Require Host PC Ubuntu 18.04 or Ubuntu 20.04</li>
+</ul>
+<p><strong>Step 1: Download the BSP File</strong></p>
+<p>Download the required BSP (Board Support Package) file for the Avermedia EN715 board from the following link :</p>
+<p><a href="https://avermedia.sharepoint.com/:u:/s/AVer.AI/EZVNof1ngB1AjENIYrIr5HEBwscp22NZcgk6IzAc1NVVuQ?e=O5TVlm">Download BSP File</a></p>
+<p><strong>Step 2: Extract the BSP File</strong></p>
+<p>Once the BSP file has been downloaded, open a terminal on your host machine and navigate to the directory where the file is located.</p>
+<p>Run the following command to extract the BSP file:</p>
+<pre><code>sudo tar zxf EN715-NX-R1.0.22.4.6.tar.gz
+</code></pre>
+<p><strong>Step 3: Put Jetson NX into Recovery Mode</strong></p>
+<p>To flash the BSP file onto the Jetson NX, you need to put the device into recovery mode.</p>
+<p><strong>Steps to enter Recovery Mode:</strong></p>
+<ul>
+<li>Connect the Jetson NX to your host PC using a micro-USB cable.</li>
+<li>Press and hold the Recovery button. </li>
+<li>While holding the Recovery button, press the Power button.</li>
+<li>Release the Recovery button.</li>
+</ul>
+<p><strong>Step 4: Run Flashing Commands</strong></p>
+<ul>
+<li>Navigate to the directory</li>
+</ul>
+<pre><code>cd JetPack_4.6_Linux_JETSON_XAVIER_NX_TARGETS/Linux_for_Tegra
+</code></pre>
+<ul>
+<li>Run the setup script</li>
+</ul>
+<pre><code>sudo ./setup.sh 
+</code></pre>
+<ul>
+<li>
+<p>When prompted, select <strong><em>Raspberry_Pi_v2</em></strong> by entering <strong>7</strong>.</p>
+</li>
+<li>
+<p>Run the flashing command</p>
+</li>
+</ul>
+<pre><code>sudo ./install.sh
+</code></pre>
+<h3 id="avermedia-tx2nx"><strong>Avermedia</strong> (TX2NX)</h3>
+<p><em>Before proceeding, ensure you have the following:</em>*</p>
+<ul>
+<li>Jetson TX2NX device</li>
+<li>Avermedia EN715 board</li>
+<li>USB cable for putting the device into recovery mod</li>
+<li>Require Host PC Ubuntu 18.04 or Ubuntu 20.04</li>
+</ul>
+<p><strong>Step 1: Download the BSP File</strong></p>
+<p>Download the required BSP (Board Support Package) file for the Avermedia EN715 board from the following link :</p>
+<p><a href="https://s3.us-west-2.amazonaws.com/storage.avermedia.com/web_release_www/EN715/BSP/BSP-TX2+NX/EN715-TX2-NX-R1.0.4.4.6.tar.gz">Download BSP File</a></p>
+<p><strong>Step 2: Extract the BSP File</strong></p>
+<p>Once the BSP file has been downloaded, open a terminal on your host machine and navigate to the directory where the file is located.</p>
+<p>Run the following command to extract the BSP file:</p>
+<pre><code>sudo tar zxf EN715-TX2-NX-R1.0.4.4.6.tar.gz
+</code></pre>
+<p><strong>Step 3: Put Jetson NX into Recovery Mode</strong></p>
+<p>To flash the BSP file onto the Jetson TX2NX, you need to put the device into recovery mode.</p>
+<p><strong>Steps to enter Recovery Mode:</strong></p>
+<ul>
+<li>Connect the Jetson TX2NX to your host PC using a micro-USB cable.</li>
+<li>Press and hold the Recovery button. </li>
+<li>While holding the Recovery button, press the Power button.</li>
+<li>Release the Recovery button.</li>
+</ul>
+<p><strong>Step 4: Run Flashing Commands</strong></p>
+<ul>
+<li>Navigate to the directory</li>
+</ul>
+<pre><code>cd JetPack_4.6_Linux_JETSON_TX2_TARGETS/Linux_for_Tegra
+</code></pre>
+<ul>
+<li>Run the setup script</li>
+</ul>
+<pre><code>sudo ./setup.sh 
+</code></pre>
+<ul>
+<li>
+<p>When prompted, select <strong><em>Raspberry_Pi_v2</em></strong> by entering <strong>7</strong>.</p>
+</li>
+<li>
+<p>Run the flashing command</p>
+</li>
+</ul>
+<pre><code>sudo ./install.sh
+</code></pre>
+<h3 id="eagletech-101"><strong>Eagletech-101</strong></h3>
+<p><strong>Preloaded OS Information</strong></p>
+<ul>
+<li><strong>OS:</strong> Preloaded with BSP</li>
+<li><strong>Username:</strong> <strong><em>nvidia</em></strong></li>
+<li><strong>Password:</strong> <strong><em>nvidia</em></strong></li>
+</ul>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Eagle-101 with Jetson Nano Module</li>
+<li>Require Host PC Ubuntu 18.04</li>
+</ul>
+<p><strong>Step 1: Download Required Files</strong></p>
+<p>Download the following two files from the <a href="https://developer.nvidia.com/embedded/linux-tegra-r3272">NVIDIA Developer Portal</a></p>
+<ul>
+<li>Jetson-210_Linux_R32.7.2_aarch64.tbz2</li>
+<li>Tegra_Linux_Sample-Root-Filesystem_R32.7.2_aarch64.tbz2</li>
+</ul>
+<p><strong>Step 2: Decompress Image File on Host PC</strong></p>
+<ul>
+<li>Open a terminal on your host PC (Ubuntu 18.04).</li>
+<li>Decompress the Jetson Linux file:</li>
+</ul>
+<pre><code>tar xf jetson-210_Linux_R32.7.2_aarch64.tbz2
+</code></pre>
+<ul>
+<li>Navigate to the root filesystem directory:</li>
+</ul>
+<pre><code>cd Linux_for_Tegra/rootfs/
+</code></pre>
+<ul>
+<li>Decompress the root filesystem into the <strong><em>rootfs/</em></strong> directory:</li>
+</ul>
+<pre><code>sudo tar xpf /path/to/Tegra_Linux_Sample-Root-Filesystem_R32.7.2_aarch64.tbz2
+</code></pre>
+<ul>
+<li>
+<p>Replace <strong><em>/path/to/</em></strong> with the actual path to the downloaded file.</p>
+</li>
+<li>
+<p>Move back to the <strong><em>Linux_for_Tegra/</em></strong> directory:</p>
+</li>
+</ul>
+<pre><code>cd ..
+</code></pre>
+<ul>
+<li>Apply Binaries</li>
+</ul>
+<pre><code>sudo ./apply_binaries.sh
+</code></pre>
+<p><strong>Step 3: Copy Device Tree File</strong></p>
+<p><a href="https://drive.google.com/file/d/1bXZB38e7l73AnbYmQjp5-Xd215msaowh/view?usp=sharing">Download dtb File</a></p>
+<p>Copy the necessary device tree file to the appropriate directory:</p>
+<pre><code>cp tegra210-p3448-0002-p3449-0000-b00.dtb Linux_for_Tegra/kernel/dtb/
+</code></pre>
+<p><strong>Step 4: Flash Image and Boot the Device</strong></p>
+<ul>
+<li>Put the Jetson Nano into Force Recovery Mode:<ul>
+<li>On the Eagle-101 board, short the 3-pin (FC REC) and 4-pin (GND)</li>
+<li>Connect the Micro USB to your host PC.</li>
+</ul>
+</li>
+<li>Run the flash command in the <strong><em>Linux_for_Tegra/</em></strong> directory:</li>
+</ul>
+<pre><code>sudo ./flash.sh jetson-nano-emmc mmcblk0p1
+</code></pre>
+<h3 id="developer-kit"><strong>Developer-Kit</strong></h3>
+<p><strong>Hardware Setup</strong></p>
+<ul>
+<li>Jetson Nano Developer Kit: Comes with the board, heat sink, and ports pre-mounted.</li>
+<li>MicroSD Card (minimum 32 GB recommended): For OS and application storage.</li>
+<li>5V/4A Power Supply: Required for powering the board. Optionally, you can use micro-USB power for low-power projects.</li>
+<li>HDMI or DisplayPort Monitor: For display output.</li>
+<li>USB Keyboard and Mouse: For input.</li>
+</ul>
+<p><strong>Flashing the OS</strong></p>
+<ul>
+<li>
+<p>Download, install, and launch <a href="https://etcher.balena.io/">Etcher</a></p>
+</li>
+<li>
+<p>Download the <a href="https://developer.nvidia.com/jetson-nano-sd-card-image">Jetson Nano Developer Kit SD Card Image</a>, and note where it was saved on the computer.</p>
+</li>
+<li>
+<p>Click “Select image” and choose the zipped image file downloaded earlier.</p>
+</li>
+<li>
+<p>Click “Flash!” Your OS may prompt for your username and password before it allows Etcher to proceed.</p>
+</li>
+<li>
+<p>It will take Etcher 10-15 minutes to write and validate the image if your microSD card is connected via USB 3.0</p>
+</li>
+<li>
+<p>After Etcher finishes, eject the SD Card using Files application</p>
+</li>
+<li>
+<p>Physically remove microSD card from the computer.</p>
+</li>
+</ul>
+<p><strong>3. First Boot Setup</strong></p>
+<ul>
+<li>
+<p>Insert the microSD card into the Jetson Nano.</p>
+</li>
+<li>
+<p>Power on the Jetson Nano by plugging in the power supply.</p>
+</li>
+<li>
+<p>The system will boot into the NVIDIA JetPack OS, which is based on Ubuntu 18.04.</p>
+</li>
+<li>
+<p>Follow the on-screen instructions to set up the system, including:</p>
+<ul>
+<li>Username and password creation (default for tutorials: <strong><em>nvidia/nvidia</em></strong>).</li>
+<li>Setting up network access (Wi-Fi via USB dongle or Ethernet).</li>
+</ul>
+</li>
+</ul>
+<h3 id="tacodi"><strong>Tacodi</strong></h3>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>Host PC: Ubuntu 18.04</li>
+<li>NVIDIA SDK Manager: Installed on the host PC</li>
+<li>USB-to-USB Cable: To connect the Tacodi board to the host PC</li>
+<li>JetPack 4.6.5: Downloaded and installed via SDK Manager</li>
+</ul>
+<p><strong>Step 1: Install NVIDIA SDK Manager</strong></p>
+<ul>
+<li>
+<p>Download the NVIDIA SDK Manager from the official <a href="https://developer.nvidia.com/sdk-manager">NVIDIA Developer website</a></p>
+</li>
+<li>
+<p>Open a terminal and install the SDK Manager:</p>
+</li>
+</ul>
+<pre><code>sudo apt install ./sdkmanager_*.deb
+</code></pre>
+<ul>
+<li>
+<p>Replace <strong>sdkmanager_*.deb</strong> with the actual filename of the SDK Manager installer.</p>
+</li>
+<li>
+<p>Launch the SDK Manager:</p>
+</li>
+</ul>
+<p><strong>Step 2: Download JetPack</strong></p>
+<ul>
+<li>Open the SDK Manager and log in using your NVIDIA Developer account.</li>
+<li>Under JetPack in the SDK Manager, select JetPack 4.6 from the available options.</li>
+<li>Choose the target hardware as Jetson Nano .</li>
+<li>Click Download and Install to download the necessary JetPack components and flash tools.</li>
+</ul>
+<p><strong>Step 3: Connect the Tacodi Board</strong></p>
+<ul>
+<li>Connect the Tacodi board to your host PC using a USB-to-USB cable.</li>
+<li>Connect the jumper to put board into force recovery mode</li>
+<li>Power on the Tacodi board.</li>
+</ul>
+<p><strong>Step 4: Flash the Device</strong></p>
+<ul>
+<li>In the SDK Manager, navigate to the Flash section.</li>
+<li>Select your device from the list of connected devices.</li>
+<li>Click Flash to begin the process</li>
+<li>Enter the host system password </li>
+<li>Enter the Jetson username and password which you want to set (By default is <strong><em>nvidia/nvidia</em></strong>)  </li>
+</ul>
+<h3 id="os-transfer"><strong>OS Transfer</strong></h3>
+<p>When flashing the Jetson SOM (System on Module), the operating system is initially installed on the eMMC. If you need to transfer the OS to an SSD or SD card, follow these steps</p>
+<p><strong>Format the SSD or sd card</strong></p>
+<pre><code>sudo mkfs -t ext4 /dev/nvme0n1
+sudo fdisk /dev/nvme0n1
+sudo mkfs -t ext4 /dev/nvme0n1p1
+</code></pre>
+<p><strong>Download and Extract Required Files</strong></p>
+<p><a href="https://drive.google.com/file/d/16R8RoCx-6oYDGRgITnLtxrTqIMEmVE_h/view?usp=sharing">Download</a> the provided ZIP file. After extracting it, you will find two important shell scripts:</p>
+<ul>
+<li><code>copy-rootfs-ssd.sh</code></li>
+<li><code>setup-service.sh</code></li>
+</ul>
+<p><strong>Run the Scripts</strong></p>
+<ul>
+<li>
+<p>Run the copy-rootfs-ssd.sh script to copy the root filesystem to the SSD or SD card.</p>
+</li>
+<li>
+<p>After that, run the setup-service.sh script to configure the necessary services for booting from the SSD or SD card.</p>
+</li>
+</ul>
+<p><strong>Reboot Device</strong></p>
+<p>Once the scripts have been executed successfully, restart the system.</p>
+<p><strong>Verify the Transfer</strong></p>
+<p>After rebooting, run the following command to check if the operating system is now running from the SSD or SD card:</p>
+<pre><code>df -h
+</code></pre>
+<h2 id="dgpu"><strong>dGPU</strong></h2>
+<h3 id="ubuntu-2004"><strong>Ubuntu 20.04</strong></h3>
+<p><strong>Dual Boot Setup: Installing Ubuntu 20.04 Alongside Windows</strong></p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>USB Drive (8 GB or larger): To create a bootable Ubuntu 20.04 installation media.</li>
+<li>Ubuntu 20.04 ISO File: Download the <a href="https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso">Ubuntu 20.04 LTS ISO</a>.</li>
+<li><a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe">Rufus</a> : For creating a bootable USB drive.</li>
+</ul>
+<p><strong>Step 1: Create a Bootable USB</strong></p>
+<ul>
+<li>Download and install Rufus </li>
+<li>Insert the USB drive into your system and open Rufus:<ul>
+<li>Select your USB drive.</li>
+<li>Choose the downloaded Ubuntu 20.04 ISO as the image.</li>
+<li>Ensure Partition Scheme is set to GPT and Target System to UEFI.</li>
+</ul>
+</li>
+<li>Click Start and wait for the bootable USB to be created.</li>
+</ul>
+<p><strong>Step 2: Prepare Windows for Dual Boot</strong></p>
+<ul>
+<li>Free Up Disk Space for Ubuntu</li>
+<li>Go to Disk Management</li>
+<li>Right-click on your main Windows partition (usually <strong><em>C:</em></strong>) and select Shrink Volume.</li>
+<li>Shrink the partition by the amount of space you want to allocate for Ubuntu (minimum 25 GB recommended)</li>
+</ul>
+<p><strong>Step 3: Boot from the USB Drive</strong></p>
+<ul>
+<li>Reboot your system and enter the <strong>BIOS/UEFI</strong> settings by pressing a specific key (usually <strong>F2</strong>, <strong>F10</strong>, <strong>DEL</strong>, or <strong>Esc</strong>) during startup.</li>
+<li>Disable the <strong>Secure boot</strong> </li>
+<li>Change the boot order to boot from the <strong>USB drive</strong>.</li>
+<li>Save and exit BIOS/UEFI settings. </li>
+</ul>
+<p>The system will now boot from the Ubuntu installation USB.</p>
+<p><strong>Step 4: Install Ubuntu 20.04</strong></p>
+<ul>
+<li>Once the system boots from the USB, you will be prompted with the <strong>Ubuntu installation screen</strong>. Select <strong>Install Ubuntu</strong> to begin the installation process.</li>
+</ul>
+<p><strong>During Installation</strong></p>
+<ul>
+<li>
+<p><strong>Select Your Language</strong> and click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Keyboard Layout</strong> screen, select your preferred layout and continue.</p>
+</li>
+<li>
+<p><strong>Updates and Software</strong>: Choose whether to install third-party software for graphics, Wi-Fi hardware, and additional media formats.</p>
+</li>
+<li>
+<p>In the <strong>Installation Type</strong> screen, select <strong>Install Ubuntu alongside Windows Boot Manager</strong> (this option should appear if Windows is detected).</p>
+<ul>
+<li>If this option doesn’t appear, choose <strong>Something else</strong> and manually allocate partitions (refer to the advanced guide below).</li>
+</ul>
+</li>
+<li>
+<p>Allocate Space for Ubuntu:</p>
+<ul>
+<li>Allocate the free space you created earlier for Ubuntu installation.</li>
+<li>Ensure you create at least:<ul>
+<li>A root partition <strong>(/)</strong> with ext4 file system (25 GB+ recommended).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Time Zone</strong>: Select your location for the correct time zone and click <strong>Continue</strong></p>
+</li>
+<li><strong>Create User Account</strong>: Enter your name, computer name, username, and password.</li>
+<li>Click <strong>Install Now</strong> to begin the installation. Confirm the partition changes when prompted</li>
+</ul>
+<p><strong>Step 5: Post-Installation Setup</strong></p>
+<ul>
+<li>
+<p>After installation completes, remove the USB drive and restart the computer.</p>
+</li>
+<li>
+<p>The <strong>GRUB Bootloader</strong> menu will appear at startup, allowing you to choose between <strong>Ubuntu</strong> and <strong>Windows</strong>.</p>
+</li>
+</ul>
+<h3 id="ubuntu-2204"><strong>Ubuntu 22.04</strong></h3>
+<p><strong>Dual Boot Setup: Installing Ubuntu 22.04 Alongside Windows</strong></p>
+<p><strong>Prerequisites</strong></p>
+<ul>
+<li>USB Drive (8 GB or larger): To create a bootable Ubuntu 22.04 installation media.</li>
+<li>Ubuntu 22.04 ISO File: Download the <a href="https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso">Ubuntu 22.04 LTS ISO</a>.</li>
+<li><a href="https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe">Rufus</a> : For creating a bootable USB drive.</li>
+</ul>
+<p><strong>Step 1: Create a Bootable USB</strong></p>
+<ul>
+<li>Download and install Rufus </li>
+<li>Insert the USB drive into your system and open Rufus:<ul>
+<li>Select your USB drive.</li>
+<li>Choose the downloaded Ubuntu 22.04 ISO as the image.</li>
+<li>Ensure Partition Scheme is set to GPT and Target System to UEFI.</li>
+</ul>
+</li>
+<li>Click Start and wait for the bootable USB to be created.</li>
+</ul>
+<p><strong>Step 2: Prepare Windows for Dual Boot</strong></p>
+<ul>
+<li>Free Up Disk Space for Ubuntu</li>
+<li>Go to Disk Management</li>
+<li>Right-click on your main Windows partition (usually <strong><em>C:</em></strong>) and select Shrink Volume.</li>
+<li>Shrink the partition by the amount of space you want to allocate for Ubuntu (minimum 25 GB recommended)</li>
+</ul>
+<p><strong>Step 3: Boot from the USB Drive</strong></p>
+<ul>
+<li>Reboot your system and enter the <strong>BIOS/UEFI</strong> settings by pressing a specific key (usually <strong>F2</strong>, <strong>F10</strong>, <strong>DEL</strong>, or <strong>Esc</strong>) during startup.</li>
+<li>Disable the <strong>Secure boot</strong> </li>
+<li>Change the boot order to boot from the <strong>USB drive</strong>.</li>
+<li>Save and exit BIOS/UEFI settings. </li>
+</ul>
+<p>The system will now boot from the Ubuntu installation USB.</p>
+<p><strong>Step 4: Install Ubuntu 22.04</strong></p>
+<ul>
+<li>Once the system boots from the USB, you will be prompted with the <strong>Ubuntu installation screen</strong>. Select <strong>Install Ubuntu</strong> to begin the installation process.</li>
+</ul>
+<p><strong>During Installation</strong></p>
+<ul>
+<li>
+<p><strong>Select Your Language</strong> and click <strong>Continue</strong>.</p>
+</li>
+<li>
+<p>On the <strong>Keyboard Layout</strong> screen, select your preferred layout and continue.</p>
+</li>
+<li>
+<p><strong>Updates and Software</strong>: Choose whether to install third-party software for graphics, Wi-Fi hardware, and additional media formats.</p>
+</li>
+<li>
+<p>In the <strong>Installation Type</strong> screen, select <strong>Install Ubuntu alongside Windows Boot Manager</strong> (this option should appear if Windows is detected).</p>
+<ul>
+<li>If this option doesn’t appear, choose <strong>Something else</strong> and manually allocate partitions (refer to the advanced guide below).</li>
+</ul>
+</li>
+<li>
+<p>Allocate Space for Ubuntu:</p>
+<ul>
+<li>Allocate the free space you created earlier for Ubuntu installation.</li>
+<li>Ensure you create at least:<ul>
+<li>A root partition <strong>(/)</strong> with ext4 file system (25 GB+ recommended).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Time Zone</strong>: Select your location for the correct time zone and click <strong>Continue</strong></p>
+</li>
+<li><strong>Create User Account</strong>: Enter your name, computer name, username, and password.</li>
+<li>Click <strong>Install Now</strong> to begin the installation. Confirm the partition changes when prompted</li>
+</ul>
+<p><strong>Step 5: Post-Installation Setup</strong></p>
+<ul>
+<li>
+<p>After installation completes, remove the USB drive and restart the computer.</p>
+</li>
+<li>
+<p>The <strong>GRUB Bootloader</strong> menu will appear at startup, allowing you to choose between <strong>Ubuntu</strong> and <strong>Windows</strong>.</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2024 <a href="https://github.com/ansari-asim" target="_blank" rel="noopener">Asim Ansari</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tab", "navigation.tracking", "toc.integrate", "navigation.top", "search.suggest", "search.highlight", "content.tabs.link", "content.code.annotation"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.60a45f97.min.js"></script>
+      
+    
+  </body>
+</html>

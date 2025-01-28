@@ -1,0 +1,59 @@
+site_name: Assert AI Documentation
+nav:
+  - Network : index.md
+  - GPU : GPU.md
+  - SDK : sdk.md
+  - Deployment : deployment.md
+  - Monitoring : monitoring.md
+  - SOP : SOP.md
+  - FAQ : FAQ.md
+theme: 
+  name: material #readthedocs #
+  #logo: assert.png
+  features:
+    - navigation.tab
+    - navigation.tracking
+    #- navigation.sections
+    - toc.integrate
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: "#FFFF00" # Light yellow
+      accent: "#ffcc00" # Bright yellow
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: "#FFFF00" # Light yellow
+      accent: "#ffcc00" # Bright yellow
+  extra:
+    social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/ansari-asim
+      - icon: fontawesome/brands/linkedin
+        link: https://linkedin.com/in/asim-ansari-19b383151
+
+markdown_extensions:
+  - pymdownx.highlight:
+      linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.arithmatex:
+      generic: true
+  - attr_list
+
+plugins:
+  - search
+
+copyright: '&copy; 2024 <a href="https://github.com/ansari-asim" target="_blank" rel="noopener">Asim Ansari</a>'

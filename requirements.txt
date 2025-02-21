@@ -1,3 +1,8 @@
 mkdocs-glightbox
 #mkdocs-clipboard-plugin
 mkdocs-copy-code-plugin
+mkdocs
+mkdocs-material
+mkdocs-git-revision-date-localized-plugin
+mkdocs-minify-plugin
+mkdocs-redirects

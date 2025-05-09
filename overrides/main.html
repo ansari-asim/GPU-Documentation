@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  {% if page.url == "index.md" %}
+    <div class="md-hero" style="background: linear-gradient(45deg, var(--md-primary-fg-color), var(--md-accent-fg-color)); color: #fff; padding: 2rem; text-align: center;">
+      <h1>Welcome to AI Hardware Documentation</h1>
+      <p>Your comprehensive guide to networking, GPUs, SDKs, and more.</p>
+    </div>
+  {% endif %}
+  {{ super() }}
+{% endblock %}

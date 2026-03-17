@@ -311,7 +311,11 @@ body, .md-typeset {
 
 [data-md-color-scheme="default"] .language-bash code,
 [data-md-color-scheme="default"] .language-shell code,
-[data-md-color-scheme="default"] .language-console code { color: #b0f0cc !important; }
+[data-md-color-scheme="default"] .language-console code { color: #0d2318 !important; }
+
+[data-md-color-scheme="default"] .highlight :is(code, .nb, .nf, .k, .s, .mi, .bp, .n, .o) {
+  color: #0d2318 !important;
+}
 
 /* ════════════════════════════════════════════════════════════════════════════
    IMAGES — force visible in both themes
@@ -525,6 +529,11 @@ body, .md-typeset {
 .stat-num { display: block; font-size: 1.6rem; font-weight: 800; color: #00e5a0; line-height: 1; margin-bottom: .3rem; }
 .stat-label { font-size: .72rem; color: #4a6e5a; letter-spacing: .06em; text-transform: uppercase; }
 
+.stat-num,
+.stat-label {
+  white-space: nowrap;
+}
+
 [data-md-color-scheme="default"] .hero-wrap { background: #fff; border-color: rgba(0,80,48,.15); box-shadow: 0 0 40px rgba(0,80,48,.05), 0 8px 32px rgba(0,0,0,.08); }
 [data-md-color-scheme="default"] .hero-chip { background: rgba(0,80,48,.07); border-color: rgba(0,80,48,.22); color: #004d30; }
 [data-md-color-scheme="default"] .hero-chip::before { background: #006640; box-shadow: 0 0 6px #006640; }
@@ -614,6 +623,21 @@ body, .md-typeset {
   }
 
   .hero-title { font-size: 2rem !important; }
+  .hero-wrap { padding: 2.2rem 1.1rem 1.8rem; }
+  .hero-sub { font-size: .95rem; }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .9rem .4rem;
+    padding-top: 1.25rem;
+  }
+  .stat-item {
+    min-width: 0;
+    padding: 0 .25rem;
+    border-right: none;
+  }
+  .stat-num { font-size: 1.35rem; }
+  .stat-label { font-size: .66rem; letter-spacing: .04em; }
   .cards-grid { grid-template-columns: 1fr; }
   .author-wrap { flex-direction: column; text-align: center; gap: 1rem; }
   .hero-actions { flex-direction: column; align-items: center; }

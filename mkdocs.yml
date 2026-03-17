@@ -1,103 +1,157 @@
-site_name: AI Hardware Documentation
+site_name: AI Hardware Docs
 site_author: Asim Ansari
 site_description: >-
-  Comprehensive documentation for AI hardware, covering networking, GPUs, SDKs, deployment, monitoring, SOPs, and FAQs.
+  Comprehensive documentation for AI hardware — networking, GPUs,
+  SDKs, deployment pipelines, monitoring, SOPs, and FAQs.
 
+site_url: https://ansari-asim.github.io/ai-hardware-docs
 dev_addr: 127.0.0.1:8000
 
-#repo_name: ansari-asim/ai-hardware-docs
-#repo_url: https://github.com/ansari-asim/ai-hardware-docs
-
 nav:
-  - Network: index.md
-  - GPU: GPU.md
-  - SDK: sdk.md
-  - Deployment: deployment.md
-  - Monitoring: monitoring.md
-  - SOP: SOP.md
-  - FAQ: FAQ.md
-  #- Issues: issues.md
+  - 🏠 Home: index.md
+  - 🌐 Network: network.md
+  - 🖥️ GPU: GPU.md
+  - 🧰 SDK: sdk.md
+  - 🚀 Deployment: deployment.md
+  - 📊 Monitoring: monitoring.md
+  - 📋 SOP: SOP.md
+  - ❓ FAQ: FAQ.md
 
 theme:
   name: material
   custom_dir: overrides
+  logo: assets/ai-hardware-logo.svg
+
   features:
     - navigation.instant
+    - navigation.instant.prefetch
     - navigation.tracking
-    - navigation.indexes
     - navigation.sections
     - navigation.expand
     - navigation.top
-    - navigation.sticky
-    - toc.integrate
+    - navigation.footer
+    - navigation.indexes
     - toc.follow
-    - toc.sticky
     - search.suggest
     - search.highlight
     - search.share
-    - content.tabs.link
-    - content.code.annotation
     - content.code.copy
     - content.code.select
-    - header.autohide
-    - navigation.footer
-    - navigation.path
-    - navigation.progress
     - content.code.annotate
+    - content.tooltips
+    - content.tabs.link
+    - header.autohide
     - announce.dismiss
+
   language: en
+
   palette:
-    - scheme: default
-      primary: deep purple
-      accent: amber
-      toggle:
-        icon: material/lightbulb-outline
-        name: Switch to dark mode
-    - scheme: slate
-      primary: indigo
-      accent: orange
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
       toggle:
         icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
         name: Switch to light mode
+
   font:
-    text: Inter
-    code: Fira Code
+    text: DM Sans
+    code: DM Sans
+
+  icon:
+    repo: fontawesome/brands/github
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/squirrel-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: octicons/zap-16
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: octicons/quote-16
 
 extra:
   homepage: https://ansari-asim.github.io/ai-hardware-docs
+
   consent:
     title: Cookie Consent
     description: >-
-      We use cookies to enhance your experience and analyze site usage. By continuing, you agree to our use of cookies.
+      We use cookies to enhance your experience and analyze site usage.
     cookies:
-      analytics: Analytics
+      analytics: Google Analytics
     actions:
       - accept
       - manage
-  analytics:
-    provider: plausible
-    domain: ansari-asim.github.io/ai-hardware-docs
+      - reject
+
+  # Twitter/X removed
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/ansari-asim
+      name: GitHub
     - icon: fontawesome/brands/linkedin
       link: https://linkedin.com/in/asim-ansari-19b383151
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/asim_ansari
+      name: LinkedIn
+    - icon: material/web
+      link: https://ansari-asim.github.io/asim-portfolio/
+      name: Portfolio
+
+  analytics:
+    provider: google
+    property: !ENV [GOOGLE_ANALYTICS_KEY, ""]
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks! Help us improve by
+            <a href="https://github.com/ansari-asim/ai-hardware-docs/issues/new"
+               target="_blank" rel="noopener">opening an issue</a>.
+
   generator: false
 
 extra_css:
-  - stylesheets/custom.css
+  - stylesheets/extra.css
 
 extra_javascript:
   - javascripts/mathjax.js
-  - javascripts/custom.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 markdown_extensions:
+  - toc:
+      permalink: true
+      permalink_title: Link to this section
+      toc_depth: 3
+  - meta
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - tables
+  - md_in_html
+  - admonition
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
+      auto_title: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.superfences:
@@ -106,40 +160,65 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.details
-  - pymdownx.arithmatex:
-      generic: true
   - pymdownx.tabbed:
       alternate_style: true
-  - pymdownx.keys
+      combine_header_slug: true
   - pymdownx.tasklist:
       custom_checkbox: true
+      clickable_checkbox: true
+  - pymdownx.keys
+  - pymdownx.blocks.details
+  - pymdownx.blocks.admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.critic
   - pymdownx.smartsymbols
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: ansari-asim
+      repo: ai-hardware-docs
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - attr_list
-  - md_in_html
-  - admonition
-  - meta
 
 plugins:
   - search:
       lang: en
       separator: '[\s\-,:!=\[\]()"`/]+'
-  - social
+  # social plugin disabled — requires cairosvg (pip install "mkdocs-material[imaging]")
+  # - social
   - tags
   - minify:
       minify_html: true
       minify_js: true
       minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+  - redirects:
+      redirect_maps:
+        gpu/index.md: GPU.md
   - table-reader
-  - glightbox
-  - mkdocstrings:
-      default_handler: python
-      handlers:
-        python:
-          options:
-            show_source: true
-            heading_level: 2
+  - glightbox:
+      touchNavigation: true
+      loop: false
+      effect: zoom
+      slide_effect: slide
+      width: 100%
+      height: auto
+      zoomable: true
+      draggable: true
 
-copyright: '© 2025 <a href="https://github.com/ansari-asim" target="_blank" rel="noopener">Asim Ansari</a>'
+# mkdocstrings disabled — crashes build without Python source files
+# - mkdocstrings:
+#     default_handler: python
+
+copyright: >-
+  © 2026
+  <a href="https://github.com/ansari-asim" target="_blank" rel="noopener">Asim Ansari</a>
+  &nbsp;·&nbsp;
+  <a href="#__consent">Cookie settings</a>

@@ -3,6 +3,10 @@ mkdocs-glightbox
 mkdocs-copy-code-plugin
 mkdocs
 mkdocs-material
+mkdocs-material[imaging]
+mkdocs-table-reader-plugin
+mkdocstrings[python]
+pymdown-extensions
 mkdocs-git-revision-date-localized-plugin
 mkdocs-minify-plugin
 mkdocs-redirects

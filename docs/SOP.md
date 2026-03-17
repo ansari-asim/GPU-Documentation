@@ -1,111 +1,137 @@
-**Standard Operating Procedure (SOP) for GPU Installation and Maintenance**
+---
+title: SOP
+description: Standard operating procedures for GPU installation, rack setup, and maintenance.
+tags:
+  - sop
+  - gpu
+  - maintenance
+  - installation
+---
 
-### Environment Setup for GPU Installation
+# 📋 SOP — GPU Installation & Maintenance { #sop }
 
-**Designated Area**
-
-- **A)** Ensure the GPU and device are placed in a neat and clean environment to remain dust-free.
-- **B)** If such an environment is unavailable, install a rack system.
-
-**Rack Requirements**
-
-- **Water-Resistant and Dust-Proof Racks:**
-
-  - For **Jetson Devices**: Use a **2U rack**.
-  - For **RTX GPUs**: Use a **12U rack**.
-
-**Power Requirements & Socket Specifications**
-
-- For **Jetson Devices**: Requires a **5 Amp socket**.
-- For **RTX GPUs**: Requires a **16 Amp socket**.
+Standard procedures for GPU environment setup, physical installation, and scheduled servicing.
 
 ---
 
-### GPU Installation Process
+## Environment Setup { #environment }
 
-**Power Down and Open Case**
+### Designated Area { #area }
 
-1. Shut down the computer and unplug it from the wall.
-2. Press the power button for a few seconds to discharge any remaining electricity.
+- Ensure the GPU and device are placed in a **clean, dust-free environment**.
+- If such an environment is unavailable, install a **rack system**.
+
+### Rack Requirements { #rack }
+
+| Device Type | Rack Size |
+|-------------|-----------|
+| Jetson Devices | 2U rack |
+| RTX GPUs | 12U rack |
+
+Racks must be **water-resistant and dust-proof**.
+
+### Power Requirements { #power }
+
+| Device Type | Socket Required |
+|-------------|----------------|
+| Jetson Devices | 5 Amp socket |
+| RTX GPUs | 16 Amp socket |
+
+---
+
+## GPU Installation { #installation }
+
+### Step 1 — Power Down and Open Case { #power-down }
+
+1. Shut down the computer and **unplug it** from the wall.
+2. Press the power button for a few seconds to **discharge remaining electricity**.
 3. Open the case by unscrewing or releasing the side panel.
 
-**Identify PCIe Slot**
+### Step 2 — Identify PCIe Slot { #pcie }
 
-- Locate the primary PCIe x16 slot (usually the top slot closest to the CPU).
+- Locate the **primary PCIe x16 slot** — usually the top slot closest to the CPU.
 
-**Prepare the Case**
+### Step 3 — Prepare the Case { #prepare }
 
-- Remove the expansion slot covers on the case corresponding to the GPU.
+- Remove the **expansion slot covers** on the case corresponding to the GPU size.
 
-**Insert the GPU**
+### Step 4 — Insert the GPU { #insert }
 
-1. Line up the GPU’s PCIe connector with the slot.
-2. Gently press down until you hear a click from the retention clip.
+1. Line up the GPU's PCIe connector with the slot.
+2. Gently press down until you hear a **click** from the retention clip.
 3. Secure the GPU bracket to the case using screws.
 
-**Connect Power Cables**
+### Step 5 — Connect Power Cables { #power-cables }
 
-- Connect the PCIe power cables from the PSU to the GPU (6-pin, 8-pin, or both, depending on the GPU).
-- Ensure the connections are firm and secure.
+- Connect **PCIe power cables** from the PSU to the GPU (6-pin, 8-pin, or both — depending on GPU model).
+- Ensure all connections are firm and secure.
 
-**Close the Case and Power Up**
+### Step 6 — Close and Power Up { #power-up }
 
 1. Replace the side panel and screw it back into place.
-2. Plug the system back into the wall and power it on.
+2. Plug the system back in and power it on.
 
-###Servicing and Maintenance
+---
 
-**Service Frequency**
+## Servicing & Maintenance { #servicing }
 
-- Devices must be serviced **every 3 months** to ensure optimal performance and longevity.
+### Service Frequency { #frequency }
 
-**Steps for Servicing**
+!!! warning "Mandatory service interval"
+    All devices must be serviced **every 3 months** to ensure optimal performance and longevity.
 
-1. Cabinet Cleaning
-    - Use a soft fabric or tissue to clean the cabinet exterior and interior.
-    - Remove any accumulated dust or dirt.
+### Servicing Steps { #steps }
 
-2. Dust Removal
-    - Use a blower to clean the machine thoroughly, including all visible and hidden areas.
+**1. Cabinet Cleaning**
 
-3. RAM Cleaning
-    - Remove the RAM modules carefully.
-    - Inspect for any carbon deposits or residue.
-    - If carbon is detected, clean the contacts gently using a rubber eraser.
+- Use a soft fabric or tissue to clean the **cabinet exterior and interior**.
+- Remove accumulated dust and dirt.
 
-4. GPU Cleaning
-    - Detach the GPU from the motherboard carefully.
-    - Check for carbon deposits or residue on the GPU contacts.
-    - Clean the contacts gently using a rubber eraser.
+**2. Dust Removal**
 
-5. Fan Cleaning
-    - Use a blower to clean the fans thoroughly.
-    - Ensure no dust or debris remains.
+- Use a **blower** to thoroughly clean the machine, including all visible and hidden areas.
 
-6. Fan Net Cleaning
-    - Clean the fan nets using a combination of a blower and soft fabric.
-    - Ensure the nets are free of any blockages.
+**3. RAM Cleaning**
 
-**Additional Checks During Servicing**
+- Carefully remove the RAM modules.
+- Inspect for **carbon deposits** or residue on the contacts.
+- If carbon is present, clean contacts gently with a **rubber eraser**.
 
-- Inspect the power sockets and connectors for wear and tear.
-- Ensure all screws and fittings in the racks are securely fastened.
-- Verify that the fans are running smoothly without noise or obstruction.
+**4. GPU Cleaning**
 
-**Notes**
+- Carefully detach the GPU from the motherboard.
+- Check GPU contacts for **carbon deposits**.
+- Clean contacts gently with a **rubber eraser**.
 
-- Always handle components with care to avoid static damage.
-- Ensure proper ventilation during installation and servicing to avoid overheating.
+**5. Fan Cleaning**
 
-###Videos 
+- Use a blower to clean fans thoroughly.
+- Ensure no dust or debris remains.
 
-[How to clean the PC Cabinet](https://www.youtube.com/shorts/rj1ufsWJ8Xg)
+**6. Fan Net Cleaning**
 
-[How to install the Graphics Card](https://www.youtube.com/shorts/8lJxjcL9rHc)
+- Clean fan nets using a combination of **blower and soft fabric**.
+- Ensure nets are free of blockages.
 
-[How to Clean the Graphics Card](https://www.youtube.com/shorts/MAgMiGaYd-4)
+### Additional Checks { #checks }
 
-[How to remove RAM](https://www.youtube.com/shorts/OIrZT-J4XoI)
+!!! note "During every service visit"
+    - Inspect power sockets and connectors for wear and tear.
+    - Ensure all screws and rack fittings are securely fastened.
+    - Verify fans are running smoothly without noise or obstruction.
 
-[How to clean RAM](https://www.youtube.com/shorts/9lMJh1gFMz0)
+!!! danger "Handling precaution"
+    Always handle components with care to avoid **electrostatic discharge (ESD)** damage.
+    Ensure proper ventilation during installation and servicing to prevent overheating.
 
+---
+
+## Reference Videos { #videos }
+
+| Task | Link |
+|------|------|
+| Clean the PC Cabinet | [Watch ↗](https://www.youtube.com/shorts/rj1ufsWJ8Xg) |
+| Install the Graphics Card | [Watch ↗](https://www.youtube.com/shorts/8lJxjcL9rHc) |
+| Clean the Graphics Card | [Watch ↗](https://www.youtube.com/shorts/MAgMiGaYd-4) |
+| Remove RAM | [Watch ↗](https://www.youtube.com/shorts/OIrZT-J4XoI) |
+| Clean RAM | [Watch ↗](https://www.youtube.com/shorts/9lMJh1gFMz0) |

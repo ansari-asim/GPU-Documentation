@@ -1,34 +1,47 @@
-## **daddy-ai**
+---
+title: Deployment
+description: daddy-ai deployment automation, jtop monitoring, and system dependency installation.
+tags:
+  - deployment
+  - daddy-ai
+  - jtop
+  - dependencies
+---
 
-**Installation**
+# 🚀 Deployment { #deployment }
 
-To install daddy-ai, use pip:
+End-to-end deployment tooling, runtime monitoring, and all system dependency setup for AI hardware nodes.
 
-```
+---
+
+## daddy-ai { #daddy-ai }
+
+`daddy-ai` is a deployment automation library that creates systemd-managed services for your Python applications with automatic restart scheduling.
+
+### Installation { #daddy-ai-install }
+
+```bash
 pip install daddy-ai
 ```
 
-**Import the DeployMaster**
+### Import DeployMaster { #daddy-ai-import }
 
-In your Python script, import the **DeployMaster** class:
-
-```
+```python
 from daddy_ai.deploy_master import DeployMaster
 import os
 ```
-**Initialize DeployMaster**
 
-Create an instance of **DeployMaster:**
+### Initialize DeployMaster { #daddy-ai-init }
 
+```python
+deploy_master = DeployMaster(
+    user=os.getenv("USER")
+)
 ```
-deploy_master = DeployMaster(user=os.getenv("USER"))
-```
 
-**Create a Bash Script**
+### Create a Bash Script { #daddy-ai-bash }
 
-Use the **create_bash** method to create a bash script for your Python application:
-
-```
+```python
 script_file = deploy_master.create_bash(
     path="/path/to/your/app",
     command="python3 your_app.py",
@@ -36,11 +49,9 @@ script_file = deploy_master.create_bash(
 )
 ```
 
-**Generate Restart Code**
+### Generate Restart Code { #daddy-ai-restart }
 
-Generate a restart script that will manage your application's runtime:
-
-```
+```python
 deploy_master.generate_restart_code(
     start_time="09:00:00",
     end_time="17:00:00",
@@ -49,133 +60,149 @@ deploy_master.generate_restart_code(
 )
 ```
 
-**Create a Service**
+### Create a Service { #daddy-ai-service }
 
-```
+```python
 deploy_master.create_service()
 ```
 
-**File Locations**
+### File Locations { #daddy-ai-paths }
 
- - Bash scripts: **/home/{user}/daddy-ai/scripts/run_{code_name}.sh**
- - Restart Python scripts: **/home/{user}/daddy-ai/scripts/restart_{code_name}.py**
- - Service files: **/etc/systemd/system/daddy-ai-deploy-master-{code_name}.service**
+| File | Path |
+|------|------|
+| Bash scripts | `/home/{user}/daddy-ai/scripts/run_{code_name}.sh` |
+| Restart scripts | `/home/{user}/daddy-ai/scripts/restart_{code_name}.py` |
+| Service files | `/etc/systemd/system/daddy-ai-deploy-master-{code_name}.service` |
 
-## **jtop**
+---
 
-**Key Features of jtop**
+## jtop { #jtop }
 
-  - **Real-time system monitoring:** Displays real-time statistics of CPU, GPU, and memory usage.
-  - **Temperature monitoring:** Tracks the temperature of the CPU, GPU, and other critical components.
-  - **Power consumption:** Provides insights into power usage to help optimize energy efficiency.
-  - **Resource management:** Helps you identify resource bottlenecks.
-  - **NVIDIA-specific metrics:** Shows Jetson-specific details like the status of the Tensor cores and GPU load.
+`jtop` is a real-time system monitor for NVIDIA Jetson devices — part of the `jetson-stats` package.
 
-**Installation Steps**
+### Key Features { #jtop-features }
 
-The jtop utility is part of the jetson-stats package. Install it using pip:
+| Feature | Description |
+|---------|-------------|
+| Real-time monitoring | CPU, GPU, and memory statistics |
+| Temperature tracking | CPU, GPU, and critical component temps |
+| Power consumption | Energy usage insights |
+| Resource management | Identify bottlenecks |
+| NVIDIA-specific metrics | Tensor core status, GPU load |
 
-```
+### Installation { #jtop-install }
+
+```bash
 sudo pip3 install -U jetson-stats
 ```
 
-**Verify Installation**
+### Verify Installation { #jtop-verify }
 
-After the installation, you can check the version to ensure everything is installed properly:
-
-```
+```bash
 jtop --version
 ```
 
-**Running jtop**
+### Running jtop { #jtop-run }
 
-```
+```bash
 sudo jtop
 ```
-This will launch the jtop interface, displaying a comprehensive overview of the Jetson system's performance metrics.
 
-**How to Use jtop**
+!!! info "Dashboard layout"
+    - **Top bar** — uptime, CPU usage, memory, temperature
+    - **CPU section** — per-core load
+    - **GPU section** — load and CUDA core status
+    - **Memory** — RAM and swap usage
+    - **Temperature** — per-component readings
+    - **Power** — real-time draw
 
-**Basic Interface**
+### Logging System Stats { #jtop-log }
 
-When you launch jtop, you'll see a terminal-based dashboard with real-time statistics:
-
- - **Top bar:** Displays general system information, including uptime, CPU usage, memory usage, and temperature.
- - **Main area:** Contains various performance metrics like
-    - **CPU:** Shows the load on each CPU core.
-    - **GPU:** Displays the GPU load and status of the CUDA cores.
-    - **Memory:** Provides details on RAM and swap usage.
-    - **Temperature:** Tracks the temperature of different components.
-    - **Power consumption:** Indicates how much power the device is drawing.
-
-**Additional Features**
- - **Process Monitoring:** Similar to htop, jtop allows you to monitor running processes
- - **Power Mode Adjustment:**  You can adjust the power mode of your Jetson device directly from the jtop interface. This helps in optimizing performance and power consumption.
- - **Log Data:** You can log system data for later analysis by running jtop in logging mode.
-
-**Logging System Stats**
-
-You can log system statistics by using jtop's logging functionality. This is especially helpful for performance analysis and troubleshooting:
-
-```
+```bash
 sudo jtop --log <filename>
 ```
 
-## **Dependencies**
+!!! tip "Additional features"
+    - **Process Monitoring** — similar to `htop`
+    - **Power Mode Adjustment** — change Jetson power mode directly from the interface
+    - **Log Data** — capture stats for later analysis
 
-**System Update and Upgrade**
-```
-sudo apt update -y
+---
+
+## Dependencies { #dependencies }
+
+Full system dependency installation for AI hardware nodes.
+
+### System Update { #deps-update }
+
+```bash
+sudo apt update -y && \
 sudo apt upgrade -y
 ```
-**Install Python and Development Tools**
-```
-sudo apt install python3-pip -y
-sudo apt-get install python3-dev default-libmysqlclient-dev build-essential -y
+
+### Python and Dev Tools { #deps-python }
+
+```bash
+sudo apt install python3-pip -y && \
+sudo apt-get install \
+    python3-dev \
+    default-libmysqlclient-dev \
+    build-essential -y
 ```
 
-**MySQL Installation and Python MySQL Packages**
+### MySQL { #deps-mysql }
 
-```
+```bash
 sudo apt-get install mysql-server -y
-sudo pip3 uninstall mysql-connector && sudo pip3 install mysql-connector
-sudo pip3 install mysql-connector-python
-sudo pip3 install mysqlclient
 ```
 
-**Install and Manage AWS SDK (Boto3)**
-```
-sudo pip3 uninstall boto3 && sudo pip3 uninstall boto3
-sudo pip3 install boto3
-sudo pip3 install boto3 botocore awscli --ignore-installed
+```bash
+sudo pip3 uninstall mysql-connector -y && \
+sudo pip3 install mysql-connector && \
+sudo pip3 install \
+    mysql-connector-python \
+    mysqlclient
 ```
 
-**Install psutil for System Monitoring**
+### AWS SDK — Boto3 { #deps-boto3 }
+
+```bash
+sudo pip3 install \
+    boto3 \
+    botocore \
+    awscli \
+    --ignore-installed
 ```
-sudo pip3 uninstall psutil && sudo pip3 uninstall psutil
+
+### psutil — System Monitoring { #deps-psutil }
+
+```bash
 sudo pip3 install psutil
 ```
 
-**Install GStreamer and Plugins for Multimedia Processing**
-```
+### GStreamer and Multimedia Plugins { #deps-gstreamer }
+
+```bash
 sudo apt install \
-libssl1.0.0 \
-libgstreamer1.0-0 \
-gstreamer1.0-tools \
-gstreamer1.0-plugins-good \
-gstreamer1.0-plugins-bad \
-gstreamer1.0-plugins-ugly \
-gstreamer1.0-libav \
-libgstrtspserver-1.0-0 \
-libjansson4=2.11-1 -y
+    libssl1.0.0 \
+    libgstreamer1.0-0 \
+    gstreamer1.0-tools \
+    gstreamer1.0-plugins-good \
+    gstreamer1.0-plugins-bad \
+    gstreamer1.0-plugins-ugly \
+    gstreamer1.0-libav \
+    libgstrtspserver-1.0-0 \
+    "libjansson4=2.11-1" -y
 ```
 
-**Install nano Text Editor**
-```
+### nano Text Editor { #deps-nano }
+
+```bash
 sudo apt install nano -y
 ```
 
-**Install gdown for Google Drive File Downloads**
-```
+### gdown — Google Drive Downloads { #deps-gdown }
+
+```bash
 sudo pip3 install gdown
 ```

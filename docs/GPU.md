@@ -1,492 +1,418 @@
-# GPU
+---
+title: GPU
+description: Jetson device flashing, dGPU Ubuntu dual-boot, and OS transfer guides.
+tags:
+  - gpu
+  - jetson
+  - cuda
+  - ubuntu
+  - flashing
+---
 
+# 🖥️ GPU
 
-## **Jetson Device**
+Complete guide for flashing Jetson devices with BSP packages, setting up dGPU Ubuntu environments, and transferring the OS to SSD/SD card.
 
-### **Avermedia** (Nano)
+---
 
-**Before proceeding, ensure you have the following:**
+## Jetson Device { #jetson }
 
-   - Jetson Nano device
-   - Avermedia EN715 board
-   - USB cable for putting the device into recovery mod
-   - Require Host PC Ubuntu 18.04 or Ubuntu 20.04
+### Avermedia — Nano { #avermedia-nano }
 
-**Step 1: Download the BSP File**
+!!! info "Prerequisites"
+    - Jetson Nano device
+    - Avermedia EN715 board
+    - USB cable (for recovery mode)
+    - Host PC running Ubuntu 18.04 or 20.04
 
-Download the required BSP (Board Support Package) file for the Avermedia EN715 board from the following link :
+**Step 1 — Download the BSP File**
 
-[Download BSP File](https://s3.us-west-2.amazonaws.com/storage.avermedia.com/web_release_www/EN715/BSP/BSP-Nano/2021-12-20/EN715-R1.0.20.4.6.tar.gz)
+Download the BSP (Board Support Package) for the Avermedia EN715 Nano board:
 
-**Step 2: Extract the BSP File**
+[⬇ Download BSP File](https://s3.us-west-2.amazonaws.com/storage.avermedia.com/web_release_www/EN715/BSP/BSP-Nano/2021-12-20/EN715-R1.0.20.4.6.tar.gz){ .md-button }
 
-Once the BSP file has been downloaded, open a terminal on your host machine and navigate to the directory where the file is located.
+**Step 2 — Extract the BSP File**
 
-Run the following command to extract the BSP file:
-
-```
+```bash
 sudo tar xzvf EN715-R1.0.20.4.6.tar.gz
 ```
-**Step 3: Put Jetson Nano into Recovery Mode**
 
-To flash the BSP file onto the Jetson Nano, you need to put the device into recovery mode.
+**Step 3 — Put Jetson Nano into Recovery Mode**
 
-**Steps to enter Recovery Mode:**
+1. Connect the Jetson Nano to your host PC via micro-USB.
+2. Press and hold the **Recovery** button.
+3. While holding Recovery, press the **Power** button.
+4. Release the Recovery button.
 
-  - Connect the Jetson Nano to your host PC using a micro-USB cable.
-  - Press and hold the Recovery button.
-  - While holding the Recovery button, press the Power button.
-  - Release the Recovery button.
+**Step 4 — Run Flashing Commands**
 
-**Step 4: Run Flashing Commands**
+Navigate to the extracted directory:
 
-  - Navigate to the directory
-
-```
+```bash
 cd JetPack_4.6_Linux_JETSON_NANO_TARGETS/Linux_for_Tegra
 ```
-  - Run the setup script
 
+Run the setup script:
+
+```bash
+sudo ./setup.sh
 ```
-sudo ./setup.sh 
-```
- 
-  - When prompted, select ***Raspberry_Pi_v2*** by entering **7**.
- 
-  - Run the flashing command
- 
-```
+
+!!! note "When prompted"
+    Select ***Raspberry_Pi_v2*** by entering `7`.
+
+Run the flash:
+
+```bash
 sudo ./install.sh
 ```
 
-### **Avermedia** (NX)
+---
 
-*Before proceeding, ensure you have the following:**
+### Avermedia — NX { #avermedia-nx }
 
-   - Jetson NX device
-   - Avermedia EN715 board
-   - USB cable for putting the device into recovery mod
-   - Require Host PC Ubuntu 18.04 or Ubuntu 20.04
+!!! info "Prerequisites"
+    - Jetson NX device
+    - Avermedia EN715 board
+    - USB cable (for recovery mode)
+    - Host PC running Ubuntu 18.04 or 20.04
 
-**Step 1: Download the BSP File**
+**Step 1 — Download the BSP File**
 
-Download the required BSP (Board Support Package) file for the Avermedia EN715 board from the following link :
+[⬇ Download BSP File](https://avermedia.sharepoint.com/:u:/s/AVer.AI/EZVNof1ngB1AjENIYrIr5HEBwscp22NZcgk6IzAc1NVVuQ?e=O5TVlm){ .md-button }
 
-[Download BSP File](https://avermedia.sharepoint.com/:u:/s/AVer.AI/EZVNof1ngB1AjENIYrIr5HEBwscp22NZcgk6IzAc1NVVuQ?e=O5TVlm)
+**Step 2 — Extract the BSP File**
 
-**Step 2: Extract the BSP File**
-
-Once the BSP file has been downloaded, open a terminal on your host machine and navigate to the directory where the file is located.
-
-Run the following command to extract the BSP file:
-
-```
+```bash
 sudo tar zxf EN715-NX-R1.0.22.4.6.tar.gz
 ```
-**Step 3: Put Jetson NX into Recovery Mode**
 
-To flash the BSP file onto the Jetson NX, you need to put the device into recovery mode.
+**Step 3 — Put Jetson NX into Recovery Mode**
 
-**Steps to enter Recovery Mode:**
+1. Connect Jetson NX to your host PC via micro-USB.
+2. Press and hold the **Recovery** button.
+3. While holding Recovery, press the **Power** button.
+4. Release the Recovery button.
 
-  - Connect the Jetson NX to your host PC using a micro-USB cable.
-  - Press and hold the Recovery button. 
-  - While holding the Recovery button, press the Power button.
-  - Release the Recovery button.
+**Step 4 — Run Flashing Commands**
 
-**Step 4: Run Flashing Commands**
-
-  - Navigate to the directory
-
-```
+```bash
 cd JetPack_4.6_Linux_JETSON_XAVIER_NX_TARGETS/Linux_for_Tegra
 ```
-  - Run the setup script
 
+```bash
+sudo ./setup.sh
 ```
-sudo ./setup.sh 
-```
- 
-  - When prompted, select ***Raspberry_Pi_v2*** by entering **7**.
- 
-  - Run the flashing command
- 
-```
+
+!!! note "When prompted"
+    Select ***Raspberry_Pi_v2*** by entering `7`.
+
+```bash
 sudo ./install.sh
 ```
-### **Avermedia** (TX2NX)
 
-*Before proceeding, ensure you have the following:**
+---
 
-   - Jetson TX2NX device
-   - Avermedia EN715 board
-   - USB cable for putting the device into recovery mod
-   - Require Host PC Ubuntu 18.04 or Ubuntu 20.04
+### Avermedia — TX2NX { #avermedia-tx2nx }
 
-**Step 1: Download the BSP File**
+!!! info "Prerequisites"
+    - Jetson TX2NX device
+    - Avermedia EN715 board
+    - USB cable (for recovery mode)
+    - Host PC running Ubuntu 18.04 or 20.04
 
-Download the required BSP (Board Support Package) file for the Avermedia EN715 board from the following link :
+**Step 1 — Download the BSP File**
 
-[Download BSP File](https://s3.us-west-2.amazonaws.com/storage.avermedia.com/web_release_www/EN715/BSP/BSP-TX2+NX/EN715-TX2-NX-R1.0.4.4.6.tar.gz)
+[⬇ Download BSP File](https://s3.us-west-2.amazonaws.com/storage.avermedia.com/web_release_www/EN715/BSP/BSP-TX2+NX/EN715-TX2-NX-R1.0.4.4.6.tar.gz){ .md-button }
 
-**Step 2: Extract the BSP File**
+**Step 2 — Extract the BSP File**
 
-Once the BSP file has been downloaded, open a terminal on your host machine and navigate to the directory where the file is located.
-
-Run the following command to extract the BSP file:
-
-```
+```bash
 sudo tar zxf EN715-TX2-NX-R1.0.4.4.6.tar.gz
 ```
-**Step 3: Put Jetson NX into Recovery Mode**
 
-To flash the BSP file onto the Jetson TX2NX, you need to put the device into recovery mode.
+**Step 3 — Put Jetson TX2NX into Recovery Mode**
 
-**Steps to enter Recovery Mode:**
+1. Connect Jetson TX2NX to your host PC via micro-USB.
+2. Press and hold the **Recovery** button.
+3. While holding Recovery, press the **Power** button.
+4. Release the Recovery button.
 
-  - Connect the Jetson TX2NX to your host PC using a micro-USB cable.
-  - Press and hold the Recovery button. 
-  - While holding the Recovery button, press the Power button.
-  - Release the Recovery button.
+**Step 4 — Run Flashing Commands**
 
-**Step 4: Run Flashing Commands**
-
-  - Navigate to the directory
-
-```
+```bash
 cd JetPack_4.6_Linux_JETSON_TX2_TARGETS/Linux_for_Tegra
 ```
-  - Run the setup script
 
+```bash
+sudo ./setup.sh
 ```
-sudo ./setup.sh 
-```
- 
-  - When prompted, select ***Raspberry_Pi_v2*** by entering **7**.
- 
-  - Run the flashing command
- 
-```
+
+!!! note "When prompted"
+    Select ***Raspberry_Pi_v2*** by entering `7`.
+
+```bash
 sudo ./install.sh
 ```
 
-### **Eagletech-101**
+---
 
-**Preloaded OS Information**
-  
-  - **OS:** Preloaded with BSP
-  - **Username:** ***nvidia***
-  - **Password:** ***nvidia***
+### Eagletech-101 { #eagletech }
 
-**Prerequisites**
+!!! info "Preloaded OS"
+    | Field | Value |
+    |-------|-------|
+    | OS | Preloaded with BSP |
+    | Username | `nvidia` |
+    | Password | `nvidia` |
 
-  - Eagle-101 with Jetson Nano Module
-  - Require Host PC Ubuntu 18.04
+!!! info "Prerequisites"
+    - Eagle-101 with Jetson Nano Module
+    - Host PC running Ubuntu 18.04
 
-**Step 1: Download Required Files**
+**Step 1 — Download Required Files**
 
-Download the following two files from the [NVIDIA Developer Portal](https://developer.nvidia.com/embedded/linux-tegra-r3272)
+From the [NVIDIA Developer Portal](https://developer.nvidia.com/embedded/linux-tegra-r3272), download:
 
- - Jetson-210_Linux_R32.7.2_aarch64.tbz2
- - Tegra_Linux_Sample-Root-Filesystem_R32.7.2_aarch64.tbz2
+- `Jetson-210_Linux_R32.7.2_aarch64.tbz2`
+- `Tegra_Linux_Sample-Root-Filesystem_R32.7.2_aarch64.tbz2`
 
- **Step 2: Decompress Image File on Host PC**
+**Step 2 — Decompress Image File on Host PC**
 
-  - Open a terminal on your host PC (Ubuntu 18.04).
-  - Decompress the Jetson Linux file:
-```
+Decompress the Jetson Linux archive:
+
+```bash
 tar xf jetson-210_Linux_R32.7.2_aarch64.tbz2
 ```
-  - Navigate to the root filesystem directory:
-```
+
+Navigate to the rootfs directory:
+
+```bash
 cd Linux_for_Tegra/rootfs/
 ```
-  - Decompress the root filesystem into the ***rootfs/*** directory:
-```
+
+Decompress the root filesystem (replace `/path/to/` with actual path):
+
+```bash
 sudo tar xpf /path/to/Tegra_Linux_Sample-Root-Filesystem_R32.7.2_aarch64.tbz2
 ```
-- Replace ***/path/to/*** with the actual path to the downloaded file.
 
-- Move back to the ***Linux_for_Tegra/*** directory:
-```
+Return to the parent directory and apply binaries:
+
+```bash
 cd ..
-```
-- Apply Binaries
-```
 sudo ./apply_binaries.sh
 ```
 
-**Step 3: Copy Device Tree File**
+**Step 3 — Copy Device Tree File**
 
-[Download dtb File](https://drive.google.com/file/d/1bXZB38e7l73AnbYmQjp5-Xd215msaowh/view?usp=sharing)
+[⬇ Download DTB File](https://drive.google.com/file/d/1bXZB38e7l73AnbYmQjp5-Xd215msaowh/view?usp=sharing){ .md-button }
 
-Copy the necessary device tree file to the appropriate directory:
-
+```bash
+cp tegra210-p3448-0002-p3449-0000-b00.dtb \
+   Linux_for_Tegra/kernel/dtb/
 ```
-cp tegra210-p3448-0002-p3449-0000-b00.dtb Linux_for_Tegra/kernel/dtb/
-```
-**Step 4: Flash Image and Boot the Device**
 
-- Put the Jetson Nano into Force Recovery Mode:
-    - On the Eagle-101 board, short the 3-pin (FC REC) and 4-pin (GND)
-    - Connect the Micro USB to your host PC.
-- Run the flash command in the ***Linux_for_Tegra/*** directory:
+**Step 4 — Flash Image and Boot**
 
-```
+Put the Jetson Nano into Force Recovery Mode:
+
+- On the Eagle-101 board, short the **3-pin (FC REC)** and **4-pin (GND)**.
+- Connect the Micro USB to your host PC.
+
+Flash the image from the `Linux_for_Tegra/` directory:
+
+```bash
 sudo ./flash.sh jetson-nano-emmc mmcblk0p1
 ```
 
-### **Developer-Kit**
+---
 
-**Hardware Setup**
+### Developer Kit { #developer-kit }
 
-- Jetson Nano Developer Kit: Comes with the board, heat sink, and ports pre-mounted.
-- MicroSD Card (minimum 32 GB recommended): For OS and application storage.
-- 5V/4A Power Supply: Required for powering the board. Optionally, you can use micro-USB power for low-power projects.
-- HDMI or DisplayPort Monitor: For display output.
-- USB Keyboard and Mouse: For input.
+!!! info "Hardware required"
+    - Jetson Nano Developer Kit
+    - MicroSD card (32 GB minimum)
+    - 5V/4A power supply
+    - HDMI or DisplayPort monitor
+    - USB keyboard and mouse
 
-**Flashing the OS**
+**Step 1 — Flash the OS**
 
- - Download, install, and launch [Etcher](https://etcher.balena.io/)
+- Download and install [Etcher](https://etcher.balena.io/).
+- Download the [Jetson Nano SD Card Image](https://developer.nvidia.com/jetson-nano-sd-card-image).
+- In Etcher: **Select image** → choose the downloaded `.zip` → **Flash!**
+- Wait 10–15 minutes for Etcher to write and validate.
+- Eject the SD card when complete.
 
- - Download the [Jetson Nano Developer Kit SD Card Image](https://developer.nvidia.com/jetson-nano-sd-card-image), and note where it was saved on the computer.
- 
- - Click “Select image” and choose the zipped image file downloaded earlier.
+**Step 2 — First Boot Setup**
 
- - Click “Flash!” Your OS may prompt for your username and password before it allows Etcher to proceed.
+1. Insert the microSD card into the Jetson Nano.
+2. Plug in the power supply to boot.
+3. The system boots into NVIDIA JetPack OS (Ubuntu 18.04).
+4. Follow on-screen instructions:
+    - Create username and password (default for tutorials: `nvidia` / `nvidia`).
+    - Configure network access via Ethernet or USB Wi-Fi dongle.
 
- - It will take Etcher 10-15 minutes to write and validate the image if your microSD card is connected via USB 3.0
+---
 
- - After Etcher finishes, eject the SD Card using Files application
+### Tacodi { #tacodi }
 
- - Physically remove microSD card from the computer.
+!!! info "Prerequisites"
+    - Host PC: Ubuntu 18.04
+    - NVIDIA SDK Manager installed
+    - USB-to-USB cable
+    - JetPack 4.6.5
 
- **3. First Boot Setup**
+**Step 1 — Install NVIDIA SDK Manager**
 
-  - Insert the microSD card into the Jetson Nano.
-
-  - Power on the Jetson Nano by plugging in the power supply.
-  
-  - The system will boot into the NVIDIA JetPack OS, which is based on Ubuntu 18.04.
-
-  - Follow the on-screen instructions to set up the system, including:
-
-     - Username and password creation (default for tutorials: ***nvidia/nvidia***).
-      - Setting up network access (Wi-Fi via USB dongle or Ethernet).
-
-### **Tacodi**
-
-**Prerequisites**
-
- - Host PC: Ubuntu 18.04
- - NVIDIA SDK Manager: Installed on the host PC
- - USB-to-USB Cable: To connect the Tacodi board to the host PC
- - JetPack 4.6.5: Downloaded and installed via SDK Manager
-
-**Step 1: Install NVIDIA SDK Manager**
- 
- -  Download the NVIDIA SDK Manager from the official [NVIDIA Developer website](https://developer.nvidia.com/sdk-manager)
- 
- - Open a terminal and install the SDK Manager:
-```
+```bash
 sudo apt install ./sdkmanager_*.deb
-``` 
- - Replace **sdkmanager_*.deb** with the actual filename of the SDK Manager installer.
-
- - Launch the SDK Manager:
-
-**Step 2: Download JetPack**
-
- - Open the SDK Manager and log in using your NVIDIA Developer account.
- - Under JetPack in the SDK Manager, select JetPack 4.6 from the available options.
- - Choose the target hardware as Jetson Nano .
- - Click Download and Install to download the necessary JetPack components and flash tools.
-
-**Step 3: Connect the Tacodi Board**
-
- - Connect the Tacodi board to your host PC using a USB-to-USB cable.
- - Connect the jumper to put board into force recovery mode
- - Power on the Tacodi board.
-
-**Step 4: Flash the Device**
-
- - In the SDK Manager, navigate to the Flash section.
- - Select your device from the list of connected devices.
- - Click Flash to begin the process
- - Enter the host system password 
- - Enter the Jetson username and password which you want to set (By default is ***nvidia/nvidia***)  
-
-### **OS Transfer**
-
-When flashing the Jetson SOM (System on Module), the operating system is initially installed on the eMMC. If you need to transfer the OS to an SSD or SD card, follow these steps
-
-**Format the SSD or sd card**
-
 ```
+
+!!! note
+    Replace `sdkmanager_*.deb` with the actual filename. Download from the [NVIDIA Developer website](https://developer.nvidia.com/sdk-manager).
+
+**Step 2 — Download JetPack via SDK Manager**
+
+1. Open SDK Manager and log in with your NVIDIA Developer account.
+2. Under JetPack, select **JetPack 4.6**.
+3. Choose target hardware: **Jetson Nano**.
+4. Click **Download and Install**.
+
+**Step 3 — Connect the Tacodi Board**
+
+1. Connect Tacodi to host PC via USB-to-USB cable.
+2. Connect the jumper to enable **force recovery mode**.
+3. Power on the Tacodi board.
+
+**Step 4 — Flash the Device**
+
+1. In SDK Manager, go to the **Flash** section.
+2. Select your device from the connected devices list.
+3. Click **Flash**.
+4. Enter your host system password when prompted.
+5. Set the Jetson username and password (default: `nvidia` / `nvidia`).
+
+---
+
+### OS Transfer to SSD / SD Card { #os-transfer }
+
+When flashing a Jetson SOM, the OS is initially on eMMC. Use these steps to transfer it to an SSD or SD card.
+
+**Format the target drive**
+
+```bash
 sudo mkfs -t ext4 /dev/nvme0n1
 sudo fdisk /dev/nvme0n1
 sudo mkfs -t ext4 /dev/nvme0n1p1
 ```
 
-**Download and Extract Required Files**
+**Download the transfer scripts**
 
-[Download](https://drive.google.com/file/d/16R8RoCx-6oYDGRgITnLtxrTqIMEmVE_h/view?usp=sharing) the provided ZIP file. After extracting it, you will find two important shell scripts:
+[⬇ Download ZIP (scripts)](https://drive.google.com/file/d/16R8RoCx-6oYDGRgITnLtxrTqIMEmVE_h/view?usp=sharing){ .md-button }
 
- - ```copy-rootfs-ssd.sh```
- - ```setup-service.sh```
+Extract the ZIP — you will find two shell scripts:
 
-**Run the Scripts**
+- `copy-rootfs-ssd.sh`
+- `setup-service.sh`
 
- - Run the copy-rootfs-ssd.sh script to copy the root filesystem to the SSD or SD card.
+**Run the scripts**
 
- - After that, run the setup-service.sh script to configure the necessary services for booting from the SSD or SD card.
+1. Run `copy-rootfs-ssd.sh` to copy the root filesystem to the SSD/SD card.
+2. Run `setup-service.sh` to configure boot services.
 
-**Reboot Device**
+**Reboot and verify**
 
-Once the scripts have been executed successfully, restart the system.
-
-**Verify the Transfer**
-
-After rebooting, run the following command to check if the operating system is now running from the SSD or SD card:
-
-```
+```bash
 df -h
 ```
 
-## **dGPU**
+!!! success "Transfer confirmed"
+    If the OS transferred successfully, you will see the SSD or SD card listed as the root filesystem mount point.
 
-### **Ubuntu 20.04**
+---
 
-**Dual Boot Setup: Installing Ubuntu 20.04 Alongside Windows**
+## dGPU { #dgpu }
 
-**Prerequisites**
+### Ubuntu 20.04 — Dual Boot { #ubuntu-2004 }
 
-- USB Drive (8 GB or larger): To create a bootable Ubuntu 20.04 installation media.
-- Ubuntu 20.04 ISO File: Download the [Ubuntu 20.04 LTS ISO](https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso).
-- [Rufus](https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe) : For creating a bootable USB drive.
+!!! info "Prerequisites"
+    - USB drive (8 GB or larger)
+    - [Ubuntu 20.04 LTS ISO](https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso)
+    - [Rufus](https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe) (bootable USB tool)
 
-**Step 1: Create a Bootable USB**
+**Step 1 — Create a Bootable USB**
 
-- Download and install Rufus 
-- Insert the USB drive into your system and open Rufus:
-    - Select your USB drive.
-    - Choose the downloaded Ubuntu 20.04 ISO as the image.
-    - Ensure Partition Scheme is set to GPT and Target System to UEFI.
-- Click Start and wait for the bootable USB to be created.
+- Open Rufus → select your USB drive.
+- Choose the Ubuntu 20.04 ISO.
+- Set **Partition Scheme** to `GPT` and **Target System** to `UEFI`.
+- Click **Start**.
 
-**Step 2: Prepare Windows for Dual Boot**
+**Step 2 — Free Disk Space in Windows**
 
-- Free Up Disk Space for Ubuntu
-  - Go to Disk Management
-  - Right-click on your main Windows partition (usually ***C:***) and select Shrink Volume.
-  - Shrink the partition by the amount of space you want to allocate for Ubuntu (minimum 25 GB recommended)
+- Open **Disk Management**.
+- Right-click your main Windows partition (`C:`) → **Shrink Volume**.
+- Shrink by at least **25 GB** for Ubuntu.
 
-**Step 3: Boot from the USB Drive**
+**Step 3 — Boot from USB**
 
-- Reboot your system and enter the **BIOS/UEFI** settings by pressing a specific key (usually **F2**, **F10**, **DEL**, or **Esc**) during startup.
-- Disable the **Secure boot** 
-- Change the boot order to boot from the **USB drive**.
-- Save and exit BIOS/UEFI settings. 
+- Reboot → enter **BIOS/UEFI** (`F2`, `F10`, `DEL`, or `Esc`).
+- **Disable Secure Boot**.
+- Set boot order to boot from **USB drive**.
+- Save and exit.
 
-The system will now boot from the Ubuntu installation USB.
+**Step 4 — Install Ubuntu 20.04**
 
-**Step 4: Install Ubuntu 20.04**
+During installation:
 
-- Once the system boots from the USB, you will be prompted with the **Ubuntu installation screen**. Select **Install Ubuntu** to begin the installation process.
+- Select **Install Ubuntu alongside Windows Boot Manager**.
+- Allocate the free space for Ubuntu — create at minimum a root partition `/` with `ext4` (25 GB+).
+- Set timezone, language, keyboard layout, and user account.
+- Click **Install Now** and confirm partition changes.
 
-**During Installation**
+**Step 5 — Post-Installation**
 
- - **Select Your Language** and click **Continue**.
+- Remove the USB drive and restart.
+- The **GRUB bootloader** will appear, letting you choose between Ubuntu and Windows.
 
-- On the **Keyboard Layout** screen, select your preferred layout and continue.
+---
 
-- **Updates and Software**: Choose whether to install third-party software for graphics, Wi-Fi hardware, and additional media formats.
+### Ubuntu 22.04 — Dual Boot { #ubuntu-2204 }
 
-- In the **Installation Type** screen, select **Install Ubuntu alongside Windows Boot Manager** (this option should appear if Windows is detected).
+!!! info "Prerequisites"
+    - USB drive (8 GB or larger)
+    - [Ubuntu 22.04 LTS ISO](https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso)
+    - [Rufus](https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe)
 
-    - If this option doesn’t appear, choose **Something else** and manually allocate partitions (refer to the advanced guide below).
+**Step 1 — Create a Bootable USB**
 
-- Allocate Space for Ubuntu:
+- Open Rufus → select your USB drive.
+- Choose the Ubuntu 22.04 ISO.
+- Set **Partition Scheme** to `GPT` and **Target System** to `UEFI`.
+- Click **Start**.
 
-    - Allocate the free space you created earlier for Ubuntu installation.
-    - Ensure you create at least:
-        - A root partition **(/)** with ext4 file system (25 GB+ recommended).
+**Step 2 — Free Disk Space in Windows**
 
-- **Time Zone**: Select your location for the correct time zone and click **Continue**
-- **Create User Account**: Enter your name, computer name, username, and password.
-- Click **Install Now** to begin the installation. Confirm the partition changes when prompted
+- Open **Disk Management**.
+- Right-click your main Windows partition (`C:`) → **Shrink Volume**.
+- Shrink by at least **25 GB**.
 
-**Step 5: Post-Installation Setup**
+**Step 3 — Boot from USB**
 
-- After installation completes, remove the USB drive and restart the computer.
+- Reboot → enter **BIOS/UEFI** (`F2`, `F10`, `DEL`, or `Esc`).
+- **Disable Secure Boot**.
+- Set boot order to boot from **USB drive**.
+- Save and exit.
 
-- The **GRUB Bootloader** menu will appear at startup, allowing you to choose between **Ubuntu** and **Windows**.
+**Step 4 — Install Ubuntu 22.04**
 
+- Select **Install Ubuntu alongside Windows Boot Manager**.
+- Allocate the free space — root partition `/` with `ext4` (25 GB+).
+- Set timezone, language, keyboard layout, and user account.
+- Click **Install Now**.
 
-### **Ubuntu 22.04**
+**Step 5 — Post-Installation**
 
-**Dual Boot Setup: Installing Ubuntu 22.04 Alongside Windows**
-
-**Prerequisites**
-
-- USB Drive (8 GB or larger): To create a bootable Ubuntu 22.04 installation media.
-- Ubuntu 22.04 ISO File: Download the [Ubuntu 22.04 LTS ISO](https://releases.ubuntu.com/jammy/ubuntu-22.04.5-desktop-amd64.iso).
-- [Rufus](https://github.com/pbatard/rufus/releases/download/v4.5/rufus-4.5.exe) : For creating a bootable USB drive.
-
-**Step 1: Create a Bootable USB**
-
-- Download and install Rufus 
-- Insert the USB drive into your system and open Rufus:
-    - Select your USB drive.
-    - Choose the downloaded Ubuntu 22.04 ISO as the image.
-    - Ensure Partition Scheme is set to GPT and Target System to UEFI.
-- Click Start and wait for the bootable USB to be created.
-
-**Step 2: Prepare Windows for Dual Boot**
-
-- Free Up Disk Space for Ubuntu
-  - Go to Disk Management
-  - Right-click on your main Windows partition (usually ***C:***) and select Shrink Volume.
-  - Shrink the partition by the amount of space you want to allocate for Ubuntu (minimum 25 GB recommended)
-
-**Step 3: Boot from the USB Drive**
-
-- Reboot your system and enter the **BIOS/UEFI** settings by pressing a specific key (usually **F2**, **F10**, **DEL**, or **Esc**) during startup.
-- Disable the **Secure boot** 
-- Change the boot order to boot from the **USB drive**.
-- Save and exit BIOS/UEFI settings. 
-
-The system will now boot from the Ubuntu installation USB.
-
-**Step 4: Install Ubuntu 22.04**
-
-- Once the system boots from the USB, you will be prompted with the **Ubuntu installation screen**. Select **Install Ubuntu** to begin the installation process.
-
-**During Installation**
-
- - **Select Your Language** and click **Continue**.
-
-- On the **Keyboard Layout** screen, select your preferred layout and continue.
-
-- **Updates and Software**: Choose whether to install third-party software for graphics, Wi-Fi hardware, and additional media formats.
-
-- In the **Installation Type** screen, select **Install Ubuntu alongside Windows Boot Manager** (this option should appear if Windows is detected).
-
-    - If this option doesn’t appear, choose **Something else** and manually allocate partitions (refer to the advanced guide below).
-
-- Allocate Space for Ubuntu:
-
-    - Allocate the free space you created earlier for Ubuntu installation.
-    - Ensure you create at least:
-        - A root partition **(/)** with ext4 file system (25 GB+ recommended).
-
-- **Time Zone**: Select your location for the correct time zone and click **Continue**
-- **Create User Account**: Enter your name, computer name, username, and password.
-- Click **Install Now** to begin the installation. Confirm the partition changes when prompted
-
-**Step 5: Post-Installation Setup**
-
-- After installation completes, remove the USB drive and restart the computer.
-
-- The **GRUB Bootloader** menu will appear at startup, allowing you to choose between **Ubuntu** and **Windows**.
+- Remove the USB drive and restart.
+- **GRUB bootloader** will appear on startup — choose Ubuntu or Windows.

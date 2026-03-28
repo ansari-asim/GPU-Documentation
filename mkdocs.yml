@@ -9,13 +9,40 @@ dev_addr: 127.0.0.1:8000
 
 nav:
   - 🏠 Home: index.md
-  - 🌐 Network: network.md
-  - 🖥️ GPU: GPU.md
-  - 🧰 SDK: sdk.md
-  - 🚀 Deployment: deployment.md
-  - 📊 Monitoring: monitoring.md
-  - 📋 SOP: SOP.md
-  - ❓ FAQ: FAQ.md
+  - 🌐 Network:
+    - network/index.md
+    - Overview: network/overview.md
+    - Configuration: network/configuration.md
+    - Troubleshooting: network/troubleshooting.md
+  - 🖥️ GPU:
+    - gpu/index.md
+    - Overview: gpu/overview.md
+    - Setup: gpu/setup.md
+    - Benchmarking: gpu/benchmarking.md
+  - 🧰 SDK:
+    - sdk/index.md
+    - Installation: sdk/installation.md
+    - API Reference: sdk/api-reference.md
+    - Examples: sdk/examples.md
+  - 🚀 Deployment:
+    - deployment/index.md
+    - Prerequisites: deployment/prerequisites.md
+    - Pipeline: deployment/pipeline.md
+    - Rollback: deployment/rollback.md
+  - 📊 Monitoring:
+    - monitoring/index.md
+    - Camera Monitoring: monitoring/camera.md
+    - Solution Monitoring: monitoring/solution.md
+    - Hardware Utilization: monitoring/hardware.md
+  - 📋 SOP:
+    - sop/index.md
+    - Procedures: sop/procedures.md
+    - Checklists: sop/checklists.md
+  - ❓ FAQ:
+    - faq/index.md
+    - General: faq/general.md
+    - Hardware: faq/hardware.md
+    - Software: faq/software.md
 
 theme:
   name: material
@@ -201,7 +228,14 @@ plugins:
         remove_comments: true
   - redirects:
       redirect_maps:
-        gpu/index.md: GPU.md
+        gpu/index.md: gpu/overview.md
+        GPU.md: gpu/overview.md
+        network.md: network/overview.md
+        sdk.md: sdk/installation.md
+        deployment.md: deployment/pipeline.md
+        monitoring.md: monitoring/index.md
+        SOP.md: sop/procedures.md
+        FAQ.md: faq/general.md
   - table-reader
   - glightbox:
       touchNavigation: true

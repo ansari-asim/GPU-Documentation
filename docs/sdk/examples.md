@@ -1,5 +1,5 @@
 ---
-title: SDK Examples & Advanced Setup
+title: Docker Setup
 description: Sample code, Docker setup, and advanced deployment examples.
 tags:
   - sdk
@@ -7,7 +7,7 @@ tags:
   - docker
 ---
 
-# SDK Examples & Advanced Setup
+# Docker Setup
 
 ## Uninstalling
 

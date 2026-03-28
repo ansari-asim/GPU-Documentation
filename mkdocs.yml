@@ -22,8 +22,8 @@ nav:
   - 🧰 SDK:
     - sdk/index.md
     - Installation: sdk/installation.md
-    - API Reference: sdk/api-reference.md
-    - Examples: sdk/examples.md
+    - Deepstream: sdk/api-reference.md
+    - Docker: sdk/examples.md
   - 🚀 Deployment:
     - deployment/index.md
     - Prerequisites: deployment/prerequisites.md

@@ -1,5 +1,5 @@
 ---
-title: SDK API Reference
+title: Deepstream
 description: DeepStream API documentation and library references.
 tags:
   - sdk
@@ -7,7 +7,7 @@ tags:
   - deepstream
 ---
 
-# SDK API Reference
+# SDK Deepstream
 
 ## DeepStream Installation & Python Bindings
 

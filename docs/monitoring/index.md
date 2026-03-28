@@ -1,13 +1,12 @@
 ---
-title: Monitoring & Telemetry
+title: Monitoring
 description: Real-time monitoring scripts for cameras, solutions, and hardware.
 tags:
   - monitoring
-  - telemetry
   - logging
 ---
 
-# 📊 Monitoring & Telemetry
+# 📊 Monitoring 
 
 Python-based monitoring scripts for AI hardware nodes — camera health, solution services, and hardware utilization. All scripts read from `config.json` and load secrets from a `.env` file.
 

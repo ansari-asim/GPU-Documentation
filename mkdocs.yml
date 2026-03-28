@@ -233,7 +233,6 @@ plugins:
         network.md: network/overview.md
         sdk.md: sdk/installation.md
         deployment.md: deployment/pipeline.md
-        monitoring.md: monitoring/index.md
         SOP.md: sop/procedures.md
         FAQ.md: faq/general.md
   - table-reader

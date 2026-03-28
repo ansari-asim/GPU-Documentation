@@ -11,7 +11,7 @@ tags:
 
 Monitors RTSP camera streams for connectivity, latency, and offline events. Sends 🔴 Disconnect and 🟢 Reconnect alerts, and logs all events to a daily CSV.
 
-[:material-download: Download `camera_monitor.py`](../../scripts/camera_monitor.py){ .md-button download="camera_monitor.py" }
+[:material-download: Download `camera_monitor.py`](../scripts/camera_monitor.py){ .md-button download="camera_monitor.py" }
 
 ---
 

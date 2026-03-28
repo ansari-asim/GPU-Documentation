@@ -11,7 +11,7 @@ tags:
 
 Monitors Python scripts, .NET apps, Linux systemd services, and IIS sites. Sends 🔴 Down and 🟢 Recovered alerts with downtime duration. Persists state across restarts via `service_state.json`.
 
-[:material-download: Download `solution_monitor.py`](../../scripts/solution_monitor.py){ .md-button download="solution_monitor.py" }
+[:material-download: Download `solution_monitor.py`](../scripts/solution_monitor.py){ .md-button download="solution_monitor.py" }
 
 ---
 

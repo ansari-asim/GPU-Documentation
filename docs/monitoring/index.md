@@ -14,4 +14,4 @@ Python-based monitoring scripts for AI hardware nodes — camera health, solutio
 
 - **[Camera Monitoring](camera.md)** — RTSP camera stream monitoring
 - **[Solution Monitoring](solution.md)** — Service and application monitoring
-- **[Hardware Utilization](hardware.md)** — System resources and GPU metrics *(coming soon)*
+- **[Hardware Utilization](hardware.md)** — System resources and GPU metrics
